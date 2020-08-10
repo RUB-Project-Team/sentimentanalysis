@@ -1,4 +1,3 @@
-
 function selTrump(d){
     return d["Matched Keywords"]=="Trump"
   };
@@ -42,22 +41,40 @@ function selNegative(d){
     var countBidenPositive=Object.values(positiveBiden).length;
     var countBidenNegative=Object.values(negativeBiden).length;
     var countBidenNeutral=Object.values(neutralBiden).length;
-
+      var percentT=((countTrump/countTotal)*100).toFixed(2);
+      var percentB=((countBiden/countTotal)*100).toFixed(2);
+      
+      var percentPT=((countTrumpPositive/countTotal)*100).toFixed(2);
+      var percentNT=((countTrumpNegative/countTotal)*100).toFixed(2);
+      var percentNeT=((countTrumpNeutral/countTotal)*100).toFixed(2);
+      var percentPB=((countBidenPositive/countTotal)*100).toFixed(2);
+      var percentNB=((countBidenNegative/countTotal)*100).toFixed(2);
+      var percentNeB=((countBidenNeutral/countTotal)*100).toFixed(2);
+      
   var data1 = [{
     type: "sunburst",
     labels: ["Tweets", "Trump", "Biden", "Trump-Positive", "Trump-Negative", "Trump-Neutral", "Biden-Positive", "Biden-Negative", "Biden-Neutral"],
     parents: ["", "Tweets", "Tweets","Trump","Trump","Trump","Biden","Biden","Biden" ],
-    values:  [countTotal, countTrump, countBiden, countTrumpPositive, countTrumpNegative, countTrumpNeutral, countBidenPositive, countBidenNegative, countBidenNeutral],
+    // values:  [countTotal, countTrump, countBiden, countTrumpPositive, countTrumpNegative, countTrumpNeutral, countBidenPositive, countBidenNegative, countBidenNeutral],
     outsidetextfont: {size: 20, color: "#377eb8"},
-    leaf: {opacity: 0.4},
+    insidetextfont:{size:20},
+    leaf: {opacity: 0.5 },
     marker: {line: {width: 2}},
-    branchvalues: 'total'
+    values:[100, percentT,percentB ,percentPT-0.01,percentNT, percentNeT,percentPB-0.01,percentNB, percentNeB ],
+    branchvalues: 'total' 
   }];
   
   var layout = {
     margin: {l: 0, r: 0, b: 0, t: 0},
+    sunburstcolorway:["#f01d1d", "#242ba6"],
     width: 500,
-    height: 500
+    height: 500,
+    // title: {
+    //   text:'Tweet Classification',
+    //   font: {
+    //     family: 'Courier New, monospace',
+    //     size: 24
+    //   },}
   };
   
   
@@ -72,7 +89,7 @@ function selNegative(d){
 
 function renderBar(x){
     $("canvas#barchartcanvas").remove();
-    $("div#chart").append('<canvas id="barchartcanvas" width="600" height="400"></canvas>')
+    $("div#chart").append('<canvas id="barchartcanvas" width="600" height="350"></canvas>')
     d3.json(url).then(function (data) {
 
         var trump_data=data.filter(selTrump);
@@ -83,8 +100,9 @@ function renderBar(x){
             r[a.Date].push(a);
             return r;
         }, Object.create(null));
+        
         var xValues=Object.keys(dates)
-
+        // console.log(xValues)
         var barPlotData={};
         var color="";
         var label="";
@@ -97,7 +115,7 @@ function renderBar(x){
 
         var yValues=[];
         
-        for(var i=0; i<xValues.length; i++){
+        for(var i=0; i< xValues.length; i++){
             grouped = barPlotData.reduce(function (r, a) {
                 r[a.Date] = r[a.Date] || [];
                 r[a.Date].push(a);
@@ -130,7 +148,7 @@ var myBarChart = new Chart(ctx, {
 function renderTable(x){
   d3.select("table").html("");
   $("table#table1").append("<thead><tr><th>Tweets</th></tr></thead><tbody></tbody>");
-  // if(x == 0 ){d3.select("table").html("")};
+  if(x == 1 || x==2 || x==0 ){d3.select("thead").html("")};
   d3.json("/doughnut-data").then(function (data) {
     var trump_data=data.filter(selTrump);
     var biden_data=data.filter(selBiden);
@@ -141,7 +159,7 @@ function renderTable(x){
     if (x== 7 ){tableData=biden_data.filter(selNegative);};
     if (x== 5 ){tableData=trump_data.filter(selNeutral);};
     if (x== 8 ){tableData=biden_data.filter(selNeutral);};
-    console.log(Object.entries(tableData)[5][1]["Tweet"]);
+    // console.log(Object.entries(tableData)[5][1]["Tweet"]);
     requiredData=[];
     for(var i=0; i < 5; i++){
       requiredData.push({sno:(i+1),tweet: Object.entries(tableData)[i][1]["Tweet"]});

@@ -7,10 +7,14 @@ app = Flask(__name__)
 def welcome():
     return render_template("index.html")
 
+@app.route("/audience")
+def aud():
+    return render_template("audience.html")
+
 @app.route("/doughnut-data")
 def doughnut_data():
     df=pd.read_csv("../Resources/data/tweetPredData.csv")
-    df=df.drop(["Favorite", "predTweet", "CleanedTweet", "Source"],axis=1)
+    df=df.drop(["predTweet", "CleanedTweet"],axis=1)
     output=df.to_json(orient="records")
     return  output
 
