@@ -34,7 +34,7 @@ function selNegative(d){
     var countTotal=Object.values(data).length;
     var countTrump=Object.values(trump_data).length;
     var countBiden=Object.values(biden_data).length;
-  
+    console.log(countBiden)
     var countTrumpPositive=Object.values(positiveTrump).length;
     var countTrumpNegative=Object.values(negativeTrump).length;
     var countTrumpNeutral=Object.values(neutralTrump).length;
@@ -149,7 +149,7 @@ function renderTable(x){
   d3.select("table").html("");
   $("table#table1").append("<thead><tr><th>Tweets</th></tr></thead><tbody></tbody>");
   if(x == 1 || x==2 || x==0 ){d3.select("thead").html("")};
-  d3.json("/doughnut-data").then(function (data) {
+  d3.json(url).then(function (data) {
     var trump_data=data.filter(selTrump);
     var biden_data=data.filter(selBiden);
     var tableData={};
@@ -159,7 +159,7 @@ function renderTable(x){
     if (x== 7 ){tableData=biden_data.filter(selNegative);};
     if (x== 5 ){tableData=trump_data.filter(selNeutral);};
     if (x== 8 ){tableData=biden_data.filter(selNeutral);};
-    // console.log(Object.entries(tableData)[5][1]["Tweet"]);
+    console.log(Object.entries(tableData)[5][1]["Tweet"]);
     requiredData=[];
     for(var i=0; i < 5; i++){
       requiredData.push({sno:(i+1),tweet: Object.entries(tableData)[i][1]["Tweet"]});
