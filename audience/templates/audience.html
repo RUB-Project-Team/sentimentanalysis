@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+​
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+​
+    <title>Bootstrap Visualization Dashboard</title>
+​
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <link rel="stylesheet" type="text/css" href="./static/css/doughnut.css">
+​
+  </head>
+​
+  <body>
+    <!-- Start of navbar -->
+  <div class="navigation">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Sentiment Analysis on Twitter</a>
+        <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+​
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+            </li>
+             <li class="nav-item dropdown">
+                <a href="#linkupdate" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Models</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#linkhtmlfile1">FILE 1</a>
+                  <a class="dropdown-item" href="#linkhtmlfile2">FILE 2</a>
+                  <a class="dropdown-item" href="#linkhtmlfile3">FILE 3</a>
+                  <a class="dropdown-item" href="#linkhtmlfile4">FILE 4</a>
+                </div> 
+              <!-- </li>
+            <li class="nav-item">
+        <a class="nav-link" href="#linkhtmlfile">LIST 3</a>
+            </li> -->
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Technologies</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#linkhtmlfile1">FILE 1</a>
+                  <a class="dropdown-item" href="#linkhtmlfile2">FILE 2</a>
+                  <a class="dropdown-item" href="#linkhtmlfile3">FILE 3</a>
+                  <a class="dropdown-item" href="#linkhtmlfile4">FILE 4</a>
+                </div>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+             <!--  <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">About Us</a> -->
+                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#linkhtmlfile1">Contact Info</a>
+                  <a class="dropdown-item" href="#linkhtmlfile2">Profile</a> -->
+                  
+                </div>
+              </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+    <!-- End of navbar -->
+​
+  <!-- Start of container -->
+    <div class="container">
+      <div class="row">
+        
+        <div id="doughnut" class="col-lg-5 col-sm-10">
+          <h3 class="description-header">Audience Classification</h3>
+          <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+            <!-- <canvas class="plot-doughnut"id="doughnut-chart" width="800" height="650"></canvas> -->
+            <!-- We append our chart here. -->  
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-6 col-md-10" id="table">
+          <div id="chart">
+          ​<canvas id="myChart" width="600" height="400"></canvas>
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer"></div>
+    </footer>
+    <!-- End of footer -->
+​
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./static/js/audience.js"></script>  
+  </body>
+​
+</html>
