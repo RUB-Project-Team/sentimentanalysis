@@ -61,17 +61,17 @@ function selNegative(d){
       
   //  Line Chart
 var trace1 = {
-  x: "tweetDate",
+  x: tweetDate,
   y: ["countTrumpPositive", "countTrumpNeutral", "countTrumpNegative"],
   type: "line"
 };
 
 var data = [trace1];
 
-// var layout = {
-//   title: "'Bar' Chart",
-// };
-Plotly.newPlot("linegraph", data)
+var layout = {
+  title: "'Line' Chart",
+};
+Plotly.newPlot("myDiv", data, layout);
 // Plotly.newPlot("plot", data, layout);
   // var data1 = [{
   //   type: "sunburst",
@@ -107,7 +107,7 @@ Plotly.newPlot("linegraph", data)
 //     renderBar(point)
 //     renderTable(point)
 // });
-    });
+  //  });
 
 // function renderBar(x){
 //     $("canvas#barchartcanvas").remove();
@@ -196,4 +196,4 @@ Plotly.newPlot("linegraph", data)
 //     return `<td>${d["sno"]}</td><td>${d["tweet"]}</td>`;
 // })
 //   });
-// }
+ }

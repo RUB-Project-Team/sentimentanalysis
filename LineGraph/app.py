@@ -7,11 +7,12 @@ app = Flask(__name__)
 def welcome():
     return render_template("index.html")
 
-@app.route("/doughnut-data")
-def doughnut_data():
-    df=pd.read_csv("../Resources/data/tweetPredData.csv")
-    df=df.drop(["Favorite", "predTweet", "CleanedTweet", "Source"],axis=1)
-    output=df.to_json(orient="records")
+@app.route("/line-data")
+def line_data():
+    df=pd.read_csv("data/tweetPredData.csv")
+    df_line=df[["Date", "Matched Keywords", "Prediction"]]
+    output=df_line.to_json(orient="records")
+    #print(output)
     return  output
 
 @app.route("/tools")
