@@ -1,33 +1,29 @@
-style.css
-
-
-
 body{
-    background-color: #f5a7a7; 
+    background-color: #FFFFFF;
 }
 
 .navbar{
-    max-height: 80px; 
-	background-color: #17c2e4; 
+    max-height: 80px;
+	background-color: #17c2e4;
     font-size: 18px;
-    font-family: "Times New Roman", serif; 
+    font-family: "Times New Roman", serif;
 }
 
 .navigation .navbar-brand{
-	color: white; 
-	margin-left: 10px; 
-	padding: inherit; 
-	font-weight: bold; 
+	color: white;
+	margin-left: 10px;
+	padding: inherit;
+	font-weight: bold;
 	background-color: #17c2e4;
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
 
 .dropdown-item{
-    color: #2cac9f; 
+    color: #2cac9f;
 }
 
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:active{
-    background-color:#488de6; 
+    background-color:#488de6;
 }
 
 .nav-link:hover{
@@ -41,19 +37,19 @@ body{
 	background-color: #c9fceb;
 }
 .navbar{
-    max-height: none; 
+    max-height: none;
     padding: inherit;
 }
 .navbar div{
-    margin: inherit; 
-    background-color: white;  
+    margin: inherit;
+    background-color: white;
 }
 .navbar-brand{
-    padding: 10px; 
+    padding: 10px;
 }
 
 button{
-    margin-left: auto; 
+    margin-left: auto;
 }
 
 button:focus {
@@ -61,35 +57,42 @@ button:focus {
 }
 }
 
+.description-summary {
+	margin-top: 30px;
+	margin-bottom: 5px;
+	padding: 5px 5px 5px;
+	color: black;
+	background-color: white;
+}
 .description-content {
-	margin-top: 20px;
-	margin-bottom: 60px;
-	padding: 20px 30px 5px;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	padding: 5px 5px 5px;
 	color: black;
 	background-color: white;
 }
 
 .imageNav-content {
-	margin-top: 40px;
-	margin-bottom: 20px;
-	padding: 20px 30px 40px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 5px 5px;
 	color: black;
 	background-color: white;
 }
 .description-header, .imageNav-header {
-	padding-top: 15px; 
-	padding-left: 4px;
+	padding-top: 5px;
+	padding-left: 0px;
 	color: #151a18;
-	font-size: 26px;
+	font-size: 20px;
 	font-weight: bold;
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
-
+/*
 img{
 	width: 100%;
-	height: 100%;
+	#height: 100%;
 }
-
+*/
 .description-image {
 	float: left;
 	width: 60%;
@@ -98,25 +101,26 @@ img{
 
 p{
 	color: #414d4a;
-	font-size: 14px;
+	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 
 .active, .imageNav-photo:hover{
     border-color:#151a18;
-    border-style: solid; 
+    border-style: solid;
 }
 
 .footer{
-	background-color: #505251; 
-    border-top-style: solid; 
-    border-top-width: 5px; 
+
+	background-color: #505251;
+    border-top-style: solid;
+    border-top-width: 4px;
     border-top-color: #151a18;
-    color: white; 
-    min-height: 50px; 
+    color: white;
+    min-height: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px; 
+    font-size: 12px;
     text-align: center; 
     position: fixed;
     padding-top: 10px; 
