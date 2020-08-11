@@ -9,7 +9,7 @@ def welcome():
 
 @app.route("/line-data")
 def line_data():
-    df=pd.read_csv("data/tweetPredData.csv")
+    df=pd.read_csv("../Resources/outputData/tweetPredData.csv")
     df_line=df[["Date", "Matched Keywords", "Prediction"]]
     output=df_line.to_json(orient="records")
     #print(output)
