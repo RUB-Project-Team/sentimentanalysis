@@ -60,7 +60,7 @@ def twitterSource():
         #Establish DB connection - All parameters are available as environment variables
         conn = dbConnection(db_host,db_name,db_user,db_password)
         cur = conn.cursor()
-        cur.execute('SELECT * FROM  "public"."twitterSource"')
+        cur.execute('SELECT * FROM  "public"."twitterSource" LIMIT 100')
         data = [col for col in cur]
         cur.close()
         conn.close()

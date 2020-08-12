@@ -1,61 +1,35 @@
-# Import libraries
 from flask import Flask, jsonify, render_template
-from dataBase.dbFunction import *
-
-modelFile = 'sentiment_model.pickle'
+import pandas as pd
 
 app = Flask(__name__)
 
-#Take care of page not found
-@app.errorhandler(404)
-
-# Use inbuilt function which takes error as parameter
-def not_found(e):
-  #redirect to home page - we can always show custom page
-    return render_template("index.html", title="Tweeter Sentiment Analysis")
-
 @app.route("/")
-@app.route("/sentimentAnalysis")
-def sentimentAnalysis():
-    return jsonify(tweetsPredictData())
+def welcome():
+    return render_template("index.html")
 
-@app.route("/tweetData")
-def tweetData():
-    return jsonify(tweetsData())
+@app.route("/audience")
+def aud():
+    return render_template("audience.html")
 
-@app.route("/tweetUser")
-def tweetUser():
-    return jsonify(tweetUser())
+@app.route("/doughnut-data")
+def doughnut_data():
+    df=pd.read_csv("../Resources/data/tweetPredData.csv")
+    df=df.drop(["predTweet", "CleanedTweet"],axis=1)
+    output=df.to_json(orient="records")
+    return  output
 
-@app.route("/twitterSource")
-def twitterSource():
-    return jsonify(twitterSource())
+@app.route("/tools")
+def sources():
+    return render_template("tools.html")
 
 
-@app.route("/predictSentiment",methods=['POST','GET'])
-def predictSentiment():
-    if request.method == 'POST':
-        try:
-            # Reading the inputs given by the user
-            text=float(request.form['tweet'])
-            
-            # Loading the model file  
-            loaded_model = pickle.load(open(modelFile, 'rb')) 
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
-            # Predict sentiment
-            prediction = loaded_model.predict(text)
-
-            # Print prediction
-            print('prediction is', prediction)
-
-            # Show the prediction results in a UI
-            return render_template('prediction.html',prediction=prediction)
-        except Exception as e:
-            print('The Exception message is: ',e)
-            return 'Error occured during predicting results'
-    else:
-        return render_template('index.html')
-
+@app.route("/mlmodels")
+def mlmodels():
+    return render_template("mlmodels.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

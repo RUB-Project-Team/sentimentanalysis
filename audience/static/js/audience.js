@@ -1,5 +1,12 @@
-// var url = `/doughnut-data`;
-//     d3.json(url).then(function (data) {
+var url = `/doughnut-data`;
+    d3.json(url).then(function (data) {
+        grouped = data.reduce(function (r, a) {
+            r[a.Source] = r[a.Source] || [];
+            r[a.Source].push(a);
+            return r;
+        }, Object.create(null));
+        
+        console.log(Object.keys(grouped).length)
   var data1 = {
     datasets: [{
         data: [
@@ -31,7 +38,7 @@ new Chart(ctx, {
     data: data1,
     type: 'polarArea'
 });
-// });
+});
 
 // function termFreq(){
 //   var canvas = document.getElementById('myChart');
