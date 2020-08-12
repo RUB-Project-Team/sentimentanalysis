@@ -19,22 +19,34 @@ function selNegative(d){
     d3.select("#doughnut-chart").html("");
     // d3.select("#doughnut-chart3").html("");
     var url = `/doughnut-data`;
-    d3.json(url).then(function (data) {
-    var trump_data=data.filter(selTrump);
-    var biden_data=data.filter(selBiden);
-    var positiveTrump=trump_data.filter(selPositive);
-    var positiveBiden=biden_data.filter(selPositive);   
-    var negativeTrump=trump_data.filter(selNegative);
-    var negativeBiden=biden_data.filter(selNegative);
-    var neutralTrump=trump_data.filter(selNeutral);
-    var neutralBiden=biden_data.filter(selNeutral);
+    var chartData="";
+    var trump_data="";
+    var biden_data="";
+    var positiveTrump="";
+    var positiveBiden="";   
+    var negativeTrump="";
+    var negativeBiden="";
+    var neutralTrump="";
+    var neutralBiden="";
+    //d3.json(url).then(function (data) {
+    d3.json("/tweetData", function (err, data) {
+      
+    chartData=data;  
+    trump_data=data.filter(selTrump);
+    biden_data=data.filter(selBiden);
+    positiveTrump=trump_data.filter(selPositive);
+    positiveBiden=biden_data.filter(selPositive);   
+    negativeTrump=trump_data.filter(selNegative);
+    negativeBiden=biden_data.filter(selNegative);
+    neutralTrump=trump_data.filter(selNeutral);
+    neutralBiden=biden_data.filter(selNeutral);
 
 
     // Count for sunburst
     var countTotal=Object.values(data).length;
     var countTrump=Object.values(trump_data).length;
     var countBiden=Object.values(biden_data).length;
-    console.log(countBiden)
+  
     var countTrumpPositive=Object.values(positiveTrump).length;
     var countTrumpNegative=Object.values(negativeTrump).length;
     var countTrumpNeutral=Object.values(neutralTrump).length;
@@ -60,7 +72,7 @@ function selNegative(d){
     insidetextfont:{size:20},
     leaf: {opacity: 0.5 },
     marker: {line: {width: 2}},
-    values:[100, percentT,percentB ,percentPT-0.01,percentNT, percentNeT,percentPB-0.01,percentNB, percentNeB ],
+    values:[(countTotal/countTotal*100), percentT,percentB ,percentPT-0.01,percentNT, percentNeT,percentPB-0.01,percentNB, percentNeB ],
     branchvalues: 'total' 
   }];
   
@@ -69,12 +81,6 @@ function selNegative(d){
     sunburstcolorway:["#f01d1d", "#242ba6"],
     width: 500,
     height: 500,
-    // title: {
-    //   text:'Tweet Classification',
-    //   font: {
-    //     family: 'Courier New, monospace',
-    //     size: 24
-    //   },}
   };
   
   
@@ -90,28 +96,26 @@ function selNegative(d){
 function renderBar(x){
     $("canvas#barchartcanvas").remove();
     $("div#chart").append('<canvas id="barchartcanvas" width="600" height="350"></canvas>')
-    d3.json(url).then(function (data) {
 
-        var trump_data=data.filter(selTrump);
-        var biden_data=data.filter(selBiden);
-        
-        var dates = data.reduce(function (r, a) {
+        var dates = chartData.reduce(function (r, a) {
             r[a.Date] = r[a.Date] || [];
             r[a.Date].push(a);
             return r;
         }, Object.create(null));
         
         var xValues=Object.keys(dates)
-        // console.log(xValues)
+
         var barPlotData={};
         var color="";
         var label="";
-        if (x == 3){barPlotData=trump_data.filter(selPositive);color="#17a327";label="Positive Tweets-Trump";};
-        if (x== 6 ){barPlotData=biden_data.filter(selPositive);color="#17a327";label="Positive Tweets-Biden";};
-        if (x== 4 ){barPlotData=trump_data.filter(selNegative);color="#f01d1d";label="Negative Tweets-Trump";};
-        if (x== 7 ){barPlotData=biden_data.filter(selNegative);color="#f01d1d";label="Negative Tweets-Biden";};
-        if (x== 5 ){barPlotData=trump_data.filter(selNeutral);color="#d5db23";label="Neutral Tweets-Trump";};
-        if (x== 8 ){barPlotData=biden_data.filter(selNeutral);color="#d5db23";label="Neutral Tweets-Biden";};
+
+        if(x == 3 || x==4 || x==5 || x == 6 || x==7 || x==8){
+        if (x == 3){barPlotData=positiveTrump;color="#17a327";label="Positive Tweets-Trump";};
+        if (x== 6 ){barPlotData=positiveBiden;color="#17a327";label="Positive Tweets-Biden";};
+        if (x== 4 ){barPlotData=negativeTrump;color="#f01d1d";label="Negative Tweets-Trump";};
+        if (x== 7 ){barPlotData=negativeBiden;color="#f01d1d";label="Negative Tweets-Biden";};
+        if (x== 5 ){barPlotData=neutralTrump;color="#d5db23";label="Neutral Tweets-Trump";};
+        if (x== 8 ){barPlotData=neutralBiden;color="#d5db23";label="Neutral Tweets-Biden";};
 
         var yValues=[];
         
@@ -141,30 +145,28 @@ var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: barData
   });
-
-});
+}
+// });
 };
 
 function renderTable(x){
   d3.select("table").html("");
   $("table#table1").append("<thead><tr><th>Tweets</th></tr></thead><tbody></tbody>");
-  if(x == 1 || x==2 || x==0 ){d3.select("thead").html("")};
-  d3.json(url).then(function (data) {
-    var trump_data=data.filter(selTrump);
-    var biden_data=data.filter(selBiden);
+  if(x == 1 || x==2 || x==0 ){d3.select("table").html("");}
+  else {
     var tableData={};
-    if (x == 3){tableData=trump_data.filter(selPositive);};
-    if (x== 6 ){tableData=biden_data.filter(selPositive);};
-    if (x== 4 ){tableData=trump_data.filter(selNegative);};
-    if (x== 7 ){tableData=biden_data.filter(selNegative);};
-    if (x== 5 ){tableData=trump_data.filter(selNeutral);};
-    if (x== 8 ){tableData=biden_data.filter(selNeutral);};
-    console.log(Object.entries(tableData)[5][1]["Tweet"]);
+    if (x == 3){tableData=positiveTrump;};
+    if (x== 6 ){tableData=positiveBiden;};
+    if (x== 4 ){tableData=negativeTrump;};
+    if (x== 7 ){tableData=negativeBiden;};
+    if (x== 5 ){tableData=neutralTrump;};
+    if (x== 8 ){tableData=neutralBiden;};
+    // console.log(Object.entries(tableData)[5][1]["Tweet"]);
     requiredData=[];
     for(var i=0; i < 5; i++){
-      requiredData.push({sno:(i+1),tweet: Object.entries(tableData)[i][1]["Tweet"]});
+      requiredData.push({sno:(i+1),tweet: tableData[i]["Tweet"]});
     }
-    var table=d3.select("#table")
+    var table=d3.select("#table1")
 table.select("tbody").selectAll("tr")
 .data(requiredData)
 .enter()
@@ -173,5 +175,6 @@ table.select("tbody").selectAll("tr")
   // console.log(d)  
     return `<td>${d["sno"]}</td><td>${d["tweet"]}</td>`;
 })
-  });
+}
+  // });
 }
