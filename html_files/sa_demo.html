@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Sentiment Analysis online</title>
+  <title>Sentiment Analysis Demo</title>
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/
-iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <!-- <link rel="stylesheet"href="C:\Asl-RU-DSc\23_24_Final_Project\Project_Testing\static\css\style.css"> -->
   <link rel="stylesheet" href="static\css\style.css">
-
   ​
 </head>
 
@@ -27,15 +27,24 @@ iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      ​
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-
+          <!-- <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">LIST 1</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#linkhtmlfile1">FILE 1</a>
+              <a class="dropdown-item" href="#linkhtmlfile2">FILE 2</a>
+              <a class="dropdown-item" href="#linkhtmlfile3">FILE 3</a>
+              <a class="dropdown-item" href="#linkhtmlfile4">FILE 4</a>
+            </div>
+          </li> -->
+          <!-- <li class="nav-item">
+		  <a class="nav-link" href="#linkhtmlfile">LIST2</a>
+          </li> -->
           <li class="nav-item dropdown">
             <a href="Models.html" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink"
               role="button" aria-haspopup="true" aria-expanded="false">Models</a>
@@ -44,90 +53,99 @@ iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
               <a class="dropdown-item" href="models_F2.html">FILE 2</a>
 
             </div>
-
+            <!-- </li>
+          <li class="nav-item">
+		  <a class="nav-link" href="#linkhtmlfile">LIST 3</a>
+          </li> -->
           <li class="nav-item dropdown">
             <a href="tech.html" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink"
               role="button" aria-haspopup="true" aria-expanded="false">Technologies</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="tech_F1.html">FILE 1</a>
               <a class="dropdown-item" href="tech_F2.html">FILE 2</a>
+
             </div>
           </li>
-
           <li class="nav-item">
-            <a class="nav-link" href="sa_demo.html">SA_Demo</a>
+            <a class="nav-link" href="sa_demo.html">Demo</a>
 
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
 
-        </ul>
+          </li>
+          <!--  <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">About Us</a> -->
+          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#linkhtmlfile1">Contact Info</a>
+                <a class="dropdown-item" href="#linkhtmlfile2">Profile</a> -->
+
       </div>
-    </nav>
+      </li>
+      </ul>
+  </div>
+  </nav>
+  </div>
+  <!-- End of navbar -->
+  ​
+
+  <!-- Start of Aslam Code: sa_demo.html -->
+
+  <!-- <link rel="stylesheet"href="C:\Asl-RU-DSc\23_24_Final_Project\Project_Testing\static\css\sa_demo.css"> -->
+  <link rel="stylesheet" href="static\css\sa_demo.css">
+
+
+  <div class="header">
+    <h1>Sentiment Analyzer</h1>
   </div>
 
-  <div class="hero text-center">
-    <style>
-      h1 {
-        text-shadow: 2px 2px 5px red;
-      }
-      </style>
-      </head>
-      <body>
+  <div class="col-6 col-s-9">
+    <h1>LIVE Tweet Checker</h1>
+    <br>
+    <p>Automatically sort your data into sentiment categories:
+      Positive
+      Negative
+      Neutral
+    </p>
+  </div>
 
-      <h1 style="color:blue;">Sentiment Analyzer</h1>
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <h2>What?</h2>
+      <p>Chania is a city on the island of Crete.</p>
+      <h2>Where?</h2>
+      <p>Crete is a Greek island in the Mediterranean Sea.</p>
+      <h2>How?</h2>
+      <p>You can reach Chania airport from all over Europe.</p>
+    </div>
+  </div>
+  </div>
 
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-      <p>Automatically sort your data into sentiment categories: </p>
-      <p style="color:green;">Positive</p>
-      <p style="color:red;">Negative</p>
-      <p style="color:gray;">Neutral</p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <h2>Paste your text in the model, below:</h2>
-      <p></p>
-      <p></p>
-      <form>
-        <input type="button" class="w3-button w3-round-xxlarge" value="Classify Text" onclick="enterClick()">
-      </form>
+  <div class="footer">
+    <p>Resize the browser window to see how the content respond to the resizing.</p>
+  </div>
 
-      <style>
-        <div class="w3-container"><h2>Press Below(w3-button)</h2><input type="button"class="w3-button w3-black"value="Input Button"><button class="w3-button 
-w3-black">Button Button</button><a href="#"class="w3-button w3-black">Link Button</a></div></body></html>e. positive,
-        neutral or negative). </p> {
+  ​ <ul>
+    <li><a href="index.html">Home</a></li>
+  </ul>
 
-          background-color: #0099CC;
-          /* Blue background color */
+  <!-- End of Aslam Code: sa_demo.html -->
 
-          border-radius: 30px;
-          /* Curve of border corners */
+  <!-- Start of footer -->
+  <footer>
+    <div class="footer">ADD FOOTER..............</div>
+  </footer>
+  <!-- End of footer -->
+  ​
 
-          text-transform: uppercase;
-          /* Make letters uppercase */
-
-          color: white;
-          /* Text color */
-
-        }
-
-        body {
-          text-align: center;
-        }
-      </style>>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></
+      script >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>​
 
 
-      <!-- <img src="Image_0.png" alt="Image_Name" width="25%"> -->
-
-      <ul>
-        <li><a href="home.html">Home</a></li>
-      </ul>
-</body>
-
-</html>
-​
-</body>
-
-</html>
