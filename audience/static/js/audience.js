@@ -1,44 +1,67 @@
-// var url = `twitterSource`;
-//     d3.json(url).then(function (data) {
-//         grouped = data.reduce(function (r, a) {
-//             r[a.Source] = r[a.Source] || [];
-//             r[a.Source].push(a);
-//             return r;
-//         }, Object.create(null));
-        
-//         console.log(Object.keys(grouped).length)
+var url = `tweetsSource`;
+    d3.json(url).then(function (data) {
+        grouped = data.reduce(function (r, a) {
+            r[a.Source] = r[a.Source] || [];
+            r[a.Source].push(a);
+            return r;
+        }, Object.create(null));
+        // console.log(grouped["Twitter for iPhone"].length)
+        var source=Object.keys(grouped);
+        // console.log(source[0])
+        // var dict={Source:[],count:[]}
+        // for(i=0; i< source.length; i++){
+        //     dict["Source"].push(source[i]);
+        //     dict["count"].push(grouped[source[i]].length);
+        // }
+        // console.log(dict["count"])
+        var dict={}
+        for(i=0; i< source.length; i++){
+            dict[source[i]]=grouped[source[i]].length
+            // dict["count"].push(grouped[source[i]].length);
+        }
+        var items = Object.keys(dict).map(function(key) {
+            return [key, dict[key]];
+          });
+          
+          // Sort the array based on the second element
+          items.sort(function(first, second) {
+            return second[1] - first[1];
+          });
+          var graphData=items.slice(0,5);
+        //   console.log(graphData[0][0])
+        // console.log(dict)
   var data1 = {
     datasets: [{
         data: [
-            11,
-            16,
-            7,
-            3,
-            14
+            graphData[0][1],
+            graphData[1][1],
+            graphData[2][1],
+            graphData[3][1],
+            graphData[4][1]
         ],
         backgroundColor: [
-            "#FF6384",
-            "#4BC0C0",
-            "#FFCE56",
+            "rgba(255, 0, 0, 0.4)",
+            // "#FF6384",
+            "rgba(0,255,0,0.4)",
+            "rgba(255,255,0,0.5)",
             "#E7E9ED",
             "#36A2EB"
         ],
+        // fillOpacity: .3,
         label: 'My dataset' // for legend
     }],
     labels: [
-        "Red",
-        "Green",
-        "Yellow",
-        "Grey",
-        "Blue"
+        graphData[0][0],
+        graphData[1][0],graphData[2][0],graphData[3][0],graphData[4][0]
     ]
 };
 var ctx = $("#myChart");
 new Chart(ctx, {
     data: data1,
-    type: 'polarArea'
+    type: 'polarArea',
+    fillOpacity: .3
 });
-// });
+});
 
 // function termFreq(){
 //   var canvas = document.getElementById('myChart');
