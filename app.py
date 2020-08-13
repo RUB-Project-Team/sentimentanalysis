@@ -7,7 +7,6 @@ modelFile = 'sentiment_model.pickle'
 
 app = Flask(__name__)
 
-
 # Take care of page not found
 @app.errorhandler(404)
 # Use inbuilt function which takes error as parameter
@@ -15,26 +14,23 @@ def not_found(e):
     # redirect to home page - we can always show custom page
     return render_template("index.html", title="Tweeter Sentiment Analysis")
 
-
 @app.route("/")
 @app.route("/sentimentAnalysis")
 def sentimentAnalysis():
-    #jsonify(tweetsPredictData())
-    return render_template("index.html", data="")
+    return render_template("index.html", data="")  
 
 @app.route("/tweetData")
 def tweetData():
     return jsonify(tweetsData())
 
-
 @app.route("/tweetUser")
 def tweetUser():
-    return jsonify(tweetUser())
+    return jsonify(tweetsUser())
 
 
-@app.route("/twitterSource")
-def twitterSource():
-    return jsonify(twitterSource())
+@app.route("/tweetsSource")
+def tweetsSource():
+    return jsonify(tweetSource())
 
 
 @app.route("/predictSentiment", methods=['POST', 'GET'])
@@ -62,6 +58,10 @@ def predictSentiment():
     else:
         return render_template('index.html')
 
-
-if __name__ == "__main__":
+# #Application set to debug mode - update debug flag = False once testing is done
+# def create_app():
+#     if __name__ == '__main__':
+#         app.run(debug=True)
+#     return app
+if __name__ == '__main__':
     app.run(debug=True)
