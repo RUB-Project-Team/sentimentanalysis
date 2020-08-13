@@ -123,7 +123,14 @@ new Chart(document.getElementById("myChart"), {
       title: {
         display: true,
         text: 'Trump Tweets'
-      }
+      },
+      xAxes: [{
+        ticks: {
+          // autoSkip: false,
+          maxRotation: 90,
+          minRotation: 45
+        }
+      }]
     }
   });
 
