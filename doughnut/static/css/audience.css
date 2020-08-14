@@ -1,0 +1,31 @@
+
+#display {
+    height: 110px;
+    margin-top: 20%;
+    padding-top: 20%;
+    margin-left: auto;
+    background-image: url('../images/Capture.PNG');
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+}
+
+.emptySpace {
+    height: 400vh;
+}
+p {
+    background-color: lightgrey;
+    width: 300px;
+    border: 1px solid grey;
+    padding: 50px;
+    margin: 20px;
+  }
+.footer{
+    height: 200vh;
+}
+#page{
+    position: fixed;
+    width: 100%;
+    top: 30vh;
+    left: 0px;
+}

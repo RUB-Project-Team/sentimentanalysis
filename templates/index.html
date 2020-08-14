@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-​
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-​
-    <title>Bootstrap Visualization Dashboard</title>
-​
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-  <link rel="stylesheet" type="text/css" href="/Users/hasti/Desktop/sample3/static/css/style.css">
-​
+
+  <meta charset="UTF-8">
+  <title>Twitter Sentiment Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="../images/twitter-icon.png" type="image/x-icon" sizes="16x16">
+
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   </head>
-​
+
   <body>
     <!-- Start of navbar -->
   <div class="navigation">
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">Sentiment Analysis on Twitter</a>
+        <img src="static/Images/Twitter-formula.png" width="50" height="50">
+        <a class="navbar-brand" href="index.html">Twitter Sentiment Analysis</a>
         <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,126 +29,103 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-
             <li class="nav-item">
-        <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
-            <!-- <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">LIST 1</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#linkhtmlfile1">FILE 1</a>
-                <a class="dropdown-item" href="#linkhtmlfile2">FILE 2</a>
-                <a class="dropdown-item" href="#linkhtmlfile3">FILE 3</a>
-                <a class="dropdown-item" href="#linkhtmlfile4">FILE 4</a>
-              </div>
-            </li> -->
-            <!-- <li class="nav-item">
-        <a class="nav-link" href="#linkhtmlfile">LIST2</a>
-            </li> -->
-             <li class="nav-item dropdown">
-                <a href="Models.html" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Models</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="models_F1.html">FILE 1</a>
-                  <a class="dropdown-item" href="models_F2.html">FILE 2</a>
-                  
-                </div> 
-              <!-- </li>
-            <li class="nav-item">
-        <a class="nav-link" href="#linkhtmlfile">LIST 3</a>
-            </li> -->
             <li class="nav-item dropdown">
-                <a href="tech.html" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Technologies</a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   id="navbarDropdownTwo" role="button" aria-haspopup="true" aria-expanded="false">Visualization</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="tech_F1.html">FILE 1</a>
-                  <a class="dropdown-item" href="tech_F2.html">FILE 2</a>
-                  
+                  <a class="dropdown-item" href="../static/pages/wordCloud.html">Word Cloud</a>
+                  <a class="dropdown-item" href="../static/pages/sentiment.html">Sentiment</a>
+                  <a class="dropdown-item" href="../static/pages/audience.html">Audience</a>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Demo.html">Demo</a>
+            <li class="nav-item">
+                <a class="nav-link" href="../static/pages/demo.html">Demo</a>
 
               </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-
+                <a class="nav-link" href="../static/pages/doc.html">Documentation</a>
               </li>
-             <!--  <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">About Us</a> -->
-                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#linkhtmlfile1">Contact Info</a>
-                  <a class="dropdown-item" href="#linkhtmlfile2">Profile</a> -->
-                  
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="../static/pages/ref.html">References</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../static/pages/contact.html">Contact</a>
               </li>
           </ul>
         </div>
       </nav>
   </div>
     <!-- End of navbar -->
-​
+<br><br>
   <!-- Start of container -->
     <div class="container">
+         <div class="description-summary">
+            <h5 class="description-header">Presidential Election Sentiment Analysis</h5>
+              Sentiment analysis (also known as opinion mining or emotion AI) is widely used to understand individual views, what they think
+              and expect from the candidate running for the office. This kind of analysis is part of election
+              campaign strategy.
+            <hr/>
+         </div>
       <section class="row">
-        <div class="col-lg-7 col-md-12">
-          <div class="description-content">
-            <h1 class="description-header">TRUMP vs BIDEN</h1>
+        <div class="col-lg-6 col-md-12">
+          <!--div class="description-content"-->
+            <h1 class="description-header">President Donald Trump ~ Joe Biden</h1>
             <hr>
-            <img src="Image2.jpg" alt="DATA Visualization" class="description-image">
+            <img src="static/Images/Image2.jpg" alt="DATA Visualization" class="description-image">
             <p>SENTIMENT ANALYSIS ..............</p>
             <p>Twitter..............</p>
-          </div>
         </div>
-        <div class="col-lg-5 col-md-12">
-​
           <!-- Start of Visualizations imageNav Area -->
-          <section id="imageNav-area">
-            <div class="imageNav-content">
-              <h2 class="imageNav-header">CHARTS</h2>
-              <hr />
-              <div class="container">
-          <div class="row">
-          <div class="col-6">
-                    <a href="#linkhtmlfile">
-              <img src="image1.png" alt="T1 vs B1", title="CHART 1" class="imageNav-photo">
-            </a>
-          </div>
-          <div class="col-6">
-                    <a href="#linkhtmlfile">
-              <img src="image2.png" alt="T2 vs B2", title="CHART 2" class="imageNav-photo">
-              </a>
+        <div class="col-lg-6 col-md-12">
+              <h1 class="description-header">Charts</h1>
+              <hr/>
+                In politics, sentiment analysis is widely used to understand individual views, what they think and expect from the candidate running for the office. This kind of analysis is part of election campaign strategy.
+              <!--div class="container"-->
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#linkhtmlfile">
+                             <img src="static/Images/image1.png" alt="T1 vs B1",
+                                  title="CHART 1" class="imageNav-photo">
+                        </a>
                     </div>
-          <div class="col-6">
-                    <a href="#linkhtmlfile">
-              <img src="image3.jpeg" alt="T3 vs B3", title="CHART 3", class="imageNav-photo">
-            </a>
-          </div>
-          <div class="col-6">
-                    <a href="#linkhtmlfile">
-              <img src="image4.png" alt="T4 vs B4", title="CHART 4", class="imageNav-photo">
-            </a>
-          </div>
+                    <div class="col-6">
+                         <a href="#linkhtmlfile">
+                             <img src="static/Images/image2.png" alt="T2 vs B2", title="CHART 2" class="imageNav-photo">
+                         </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#linkhtmlfile">
+                             <img src="static/Images/image3.jpeg" alt="T3 vs B3", title="CHART 3", class="imageNav-photo">
+                         </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#linkhtmlfile">
+                             <img src="static/Images/image4.png" alt="T4 vs B4", title="CHART 4", class="imageNav-photo">
+                        </a>
+                    </div>
                 </div>
         </div>
-            </div>
-          </section>
-          <!-- End of the Visualizations imageNav Area -->
-​
-        </div>
-      </section>
+              <!-- End of the Visualizations imageNav Area -->
+       </section>
     </div>
     <!-- End of container -->
-​
+
     <!-- Start of footer -->
     <footer>
-      <div class="footer">ADD FOOTER..............</div>
+      <div class="footer">© Analysis Copyright Ajay Archana Hasti Akshita Aslam Rutgers Data Science Bootcamp.</div>
     </footer>
     <!-- End of footer -->
-​
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   </body>
-​
-</html>

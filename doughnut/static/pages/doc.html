@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Reference Information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="../images/twitter-icon.png" type="image/x-icon" sizes="16x16">
+
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!-- Start of navbar -->
+  <div class="navigation">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+      <img src="../Images/Twitter-formula.png" width="50" height="50">
+      <a class="navbar-brand" href="../../index.html">Twitter Sentiment Analysis</a>
+      <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      ​
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html">Home</a>
+          </li>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownTwo" role="button"
+              aria-haspopup="true" aria-expanded="false">Visualization</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="../pages/wordCloud.html">Word Cloud</a>
+              <a class="dropdown-item" href="../pages/sentiment.html">Sentiment</a>
+              <a class="dropdown-item" href="../pages/audience.html">Audience</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/demo.html">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/doc.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/ref.html">References</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- End of navbar -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="text-align:center">
+        <h4 style="margin-top:80px; margin-bottom:20px;">
+          Documentation
+          <br>
+          <i><small>tasks, tools, limitations</small></i>
+        </h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h4 style="margin-bottom:20px;">
+          Project Idea</h4>
+        <div class="row">
+          <div class="col-md-6" style="text-align: justify;">
+            <dl>
+              <dd>
+                A huge part of Twitter conversation revolves around news and politics.
+                That makes it an excellent place to measure public opinion, especially during election campaigns.
+                Twitter Sentiment Analysis can provide interesting insights on how people feel about a specific
+                candidate
+                (and you could even track sentiment over time to see how it evolves).
+
+                <br><br>
+                We are using machine learning to find out! For the past few days, team have been collecting tens and
+                thousand's
+                of tweets posted by users from around the world that discuss this topic and classifying them using
+                sentiment analysis . That is, for each tweet published that mentions either
+                Donald Trump or Joe Biden, tags it with its sentiment, which can be either positive, neutral, or
+                negative.
+            </dl>
+          </div>
+          <div class="col-md-6" style="text-align: justify;">
+            <dl>
+              <dd>
+
+                Election day looms closer and closer every week.
+                US Politics are rapidly becoming the preferred conversation topic for millions of
+                Americans and non-Americans worldwide. What are these people saying? What do they think?
+                What are their opinions? How do they feel?
+                <br><br>
+                Having millions and millions of tweets that are talking about Donald Trump and
+                Joe Boden is somehow useless if we can’t find an easy way to analyze the data.
+                Just manually looking at the raw tweets doesn’t scale, there’s too many of them.
+                For this purpose, we created a ML model to analyze all of these tweets
+                and get their sentiment and extract the most relevant keywords.
+
+
+            </dl>
+          </div>
+
+        </div>
+      </div>
+
+      <hr width="100%">
+      <hr>
+      <div class="col-md-6">
+        <h4>
+          Tasks
+        </h4>
+        <dl>
+          <dt>
+            Extract data
+          </dt>
+          <dd>
+            Twitter API and Twitter data streaming
+            methods were used extract tweet data. We used an hour window every day for seven days to extract tweet data.
+          </dd>
+          <dt>
+            Data cleaning and normalization
+          </dt>
+          <dd>
+            From our raw data inputs we cleaned and normalized the data with the goal of extracting useful keywords and
+            predict the tweet sentiment.
+          </dd>
+          <dt>
+            Database management
+          </dt>
+          <dd>
+            Normalized data was then loaded into a Postgres development database prior to being converted into a Heroku
+            database.
+          </dd>
+          <dt>
+            Analysis and visualization
+          </dt>
+          <dd>
+            Visualizations were built using variety of JS libraries.
+          </dd>
+          <dt>
+            Build dashboard and website
+          </dt>
+          <dd>
+            The dashboard function of the website was built around the interactive visualizations.
+          </dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <h4>
+          Limitations
+        </h4>
+        <dl>
+          <dt>
+            Data Volume
+          </dt>
+          <dd>
+            Volume of tweets per minute is huge. Due to limitation of hardware, storage and practicality
+            on volume of Data, team decided to retrieve cloe to 10K tweets per day for a week duration.
+          </dd>
+          <dt>
+            Data Retrieval
+          </dt>
+          <dd>
+            Twitter allows data retrieval through API up to seven days time period.
+          </dd>
+          <dt>
+            Word Classification
+          </dt>
+          <dd>
+            Too many techniques are available to classify tweet though none shows accuracy to classify tweets correctly
+            over 80%.
+          </dd>
+          <dt>
+            EDA Process
+          </dt>
+          <dd>
+            Extensive EDA process is involved that includes spell check for every word.
+          </dd>
+          <dt>
+            Data Processing Resources
+          </dt>
+          <dd>
+            Memory and CPU intensive data processing.
+          </dd>
+        </dl>
+      </div>
+
+
+    </div>
+  </div>
+  <hr width="100%">
+  <div class="row">
+    <div class="col-md-12" style="text-align:center">
+      <h4> Technology Tools Stack </h4>
+      <dl>
+        <dt>
+          Data Gathering
+        </dt>
+        <dd>
+          Twitter API
+        </dd>
+        <dd>
+          Twitter Stream
+        </dd>
+        <dd>
+          Pandas to read csv files
+        </dd>
+
+        <dt>
+          <hr width="200">
+        </dt>
+        <dt>
+          Cleaning and Normalization
+        </dt>
+        <dd>
+          Pandas - Dataframe manipulation
+        </dd>
+        <dd>
+          numPy - data handling
+        </dd>
+        <dt>
+          <hr width="200">
+        </dt>
+        <dt>
+          Sentiment Prediction
+        </dt>
+        <dd>
+          VADER Sentiment Analysis
+        </dd>
+        <dd>
+          TextBlob
+        </dd>
+        <dd>
+          AFINN
+        </dd>
+        <dd>
+          NLTK Corpus
+        </dd>
+        <dt>
+          <hr width="200">
+        </dt>
+        <dt>
+          Database Setup and Management
+        </dt>
+        <dd>
+          Flask - local hosting server
+        </dd>
+        <dd>
+          SQLAlchemy - database loading
+        </dd>
+        <dd>
+          Postgres - local database storage
+        </dd>
+        <dd>
+          Heroku Postgres - Heroku database storage
+        </dd>
+        <dt>
+          <hr width="200">
+        </dt>
+        <dt>
+          Analysis and Visualizations
+        </dt>
+        <dd>
+          d3.js - Interactive Charts
+        </dd>
+        <dd>
+          plotly.js - Pie Charts
+        </dd>
+        <dd>
+          Chart.js - Line Charts
+        </dd>
+        <dd>
+          World Cloud - Sentiment Charts
+        </dd>
+        <dt>
+          <hr width="200">
+        </dt>
+        <dt>
+          Dashboard and Website Build
+        </dt>
+        <dd>
+          Heroku - website hosting
+        </dd>
+        <dd>
+          Bootstrap - formatting
+        </dd>
+        <dt>
+          <hr width="200">
+        </dt>
+        <dt>
+          Development Environments
+        </dt>
+        <dd>
+          Visual Studio
+        </dd>
+        <dd>
+          PyCharm
+        </dd>
+        <dd>
+          Visual Studio
+        </dd>
+        <dd>
+          Jupyter Nootebook
+        </dd>
+        <dt>
+          <hr width="200">
+        </dt>
+        <dt>
+          Collaboration
+        </dt>
+        <dd>
+          GitHub - version control
+        </dd>
+        <dd>
+          Slack - messaging
+        </dd>
+        <dd>
+          Zoom - video interface, screen sharing
+        </dd>
+      </dl>
+    </div>
+  </div>
+  </div>
+  <!-- Start of footer -->
+  <footer>
+    <div class="footer">© Analysis Copyright Ajay Archana Hasti Akshita Aslam Rutgers Data Science Bootcamp.</div>
+  </footer>
+  <!-- End of footer -->
+  ​
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

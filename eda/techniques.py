@@ -10,8 +10,8 @@ from nltk.stem import WordNetLemmatizer
 from nltk.stem.porter import PorterStemmer
 import os
 
-slang_data_file = os.path.join("..","Resources","data","slang.txt")
-corpora_data_file = os.path.join("..","Resources","data","corporaForSpellCorrection.txt")
+slang_data_file = os.path.join("..","Resources","inputData","slang.txt")
+corpora_data_file = os.path.join("..","Resources","inputData","corporaForSpellCorrection.txt")
 
 def removeUnicode(text):
     """ Removes unicode strings like "\u002c" and "x96" """
