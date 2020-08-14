@@ -122,54 +122,22 @@ d3.json("/tweetUser").then(function (data) {
         avgFollowerT.push(Math.round(followersByDayT[i]/total_trump[i]));
         avgFriendsT.push(Math.round(friendsByDayT[i]/total_trump[i]));
     }
-    //Trump Chart
-    new Chart(document.getElementById("myChart2"), {
+        new Chart(document.getElementById("myChart2"), {
         type: 'line',
         data: {
           labels: dates,
           datasets: [{ 
               data: avgFollowerT,
-              label: "Average Followers of Tweeters",
-              borderColor: "#3e95cd",
+              label: "Average Followers ~ Trump",
+              borderColor: "#f01d1d",
               fill: false,
               showLine: false,
               pointStyle: "star",
               radius: 6
             }, { 
-              data: avgFriendsT,
-              label: "Average Friends of Tweeters",
-              borderColor: "#8e5ea2",
-              fill: false,
-              showLine: false,
-              pointStyle: "cross",
-              radius: 6
-            }
-          ]
-        },
-        options: {
-          title: {
-            display: true,
-            text: 'Trump Tweeters'
-          }
-        }
-      });
-          //Biden Chart
-    new Chart(document.getElementById("myChart3"), {
-        type: 'line',
-        data: {
-          labels: dates,
-          datasets: [{ 
               data: avgFollowerB,
-              label: "Average Followers of Tweeters",
-              borderColor: "#3e95cd",
-              fill: false,
-              showLine: false,
-              pointStyle: "star",
-              radius: 6
-            }, { 
-              data: avgFriendsB,
-              label: "Average Friends of Tweeters",
-              borderColor: "#8e5ea2",
+              label: "Average Followers ~ Biden",
+              borderColor: "#242ba6",
               fill: false,
               showLine: false,
               pointStyle: "cross",
@@ -180,8 +148,70 @@ d3.json("/tweetUser").then(function (data) {
         options: {
           title: {
             display: true,
-            text: 'Biden Tweeters'
+            text: 'Tweeters'
           }
         }
       });
+    //Trump Chart
+    // new Chart(document.getElementById("myChart2"), {
+    //     type: 'line',
+    //     data: {
+    //       labels: dates,
+    //       datasets: [{ 
+    //           data: avgFollowerT,
+    //           label: "Average Followers of Tweeters",
+    //           borderColor: "#3e95cd",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "star",
+    //           radius: 6
+    //         }, { 
+    //           data: avgFriendsT,
+    //           label: "Average Friends of Tweeters",
+    //           borderColor: "#8e5ea2",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "cross",
+    //           radius: 6
+    //         }
+    //       ]
+    //     },
+    //     options: {
+    //       title: {
+    //         display: true,
+    //         text: 'Trump Tweeters'
+    //       }
+    //     }
+    //   });
+    //       //Biden Chart
+    // new Chart(document.getElementById("myChart3"), {
+    //     type: 'line',
+    //     data: {
+    //       labels: dates,
+    //       datasets: [{ 
+    //           data: avgFollowerB,
+    //           label: "Average Followers of Tweeters",
+    //           borderColor: "#3e95cd",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "star",
+    //           radius: 6
+    //         }, { 
+    //           data: avgFriendsB,
+    //           label: "Average Friends of Tweeters",
+    //           borderColor: "#8e5ea2",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "cross",
+    //           radius: 6
+    //         }
+    //       ]
+    //     },
+    //     options: {
+    //       title: {
+    //         display: true,
+    //         text: 'Biden Tweeters'
+    //       }
+    //     }
+    //   });
 });
