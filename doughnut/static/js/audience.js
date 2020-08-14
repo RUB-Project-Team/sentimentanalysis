@@ -1,101 +1,217 @@
-// var url = `/doughnut-data`;
+var url = `tweetsSource`;
 //     d3.json(url).then(function (data) {
-  var data1 = {
-    datasets: [{
-        data: [
-            11,
-            16,
-            7,
-            3,
-            14
-        ],
-        backgroundColor: [
-            "#FF6384",
-            "#4BC0C0",
-            "#FFCE56",
-            "#E7E9ED",
-            "#36A2EB"
-        ],
-        label: 'My dataset' // for legend
-    }],
-    labels: [
-        "Red",
-        "Green",
-        "Yellow",
-        "Grey",
-        "Blue"
-    ]
-};
-var ctx = $("#myChart");
-new Chart(ctx, {
-    data: data1,
-    type: 'polarArea'
+//         grouped = data.reduce(function (r, a) {
+//             r[a.Source] = r[a.Source] || [];
+//             r[a.Source].push(a);
+//             return r;
+//         }, Object.create(null));
+//         var source=Object.keys(grouped);
+//         var dict={}
+//         for(i=0; i< source.length; i++){
+//             dict[source[i]]=grouped[source[i]].length
+//         }
+//         var items = Object.keys(dict).map(function(key) {
+//             return [key, dict[key]];
+//           });
+          
+//           // Sort the array based on the second element
+//           items.sort(function(first, second) {
+//             return second[1] - first[1];
+//           });
+//           var graphData=items.slice(0,5);
+//   var data1 = {
+//     datasets: [{
+//         data: [
+//             graphData[0][1],
+//             graphData[1][1],
+//             graphData[2][1],
+//             graphData[3][1],
+//             graphData[4][1]
+//         ],
+//         backgroundColor: [
+//             "rgba(255, 0, 0, 0.4)",
+//             "rgba(0,255,0,0.4)",
+//             "rgba(255,255,0,0.5)",
+//             "#E7E9ED",
+//             "#36A2EB"
+//         ],
+//         label: 'My dataset' // for legend
+//     }],
+//     labels: [
+//         graphData[0][0],
+//         graphData[1][0],graphData[2][0],graphData[3][0],graphData[4][0]
+//     ]
+// };
+// var ctx = $("#myChart");
+// new Chart(ctx, {
+//     data: data1,
+//     type: 'polarArea',
+//     fillOpacity: .3
+// });
+// });
+function selTrump(d){
+    return d["Matched Keywords"]=="Trump"
+  };
+function selBiden(d){
+    return d["Matched Keywords"]=="Biden"
+  };
+var chartData="";
+var trump_data="";
+var biden_data="";
+//read URL for data
+d3.json("/tweetUser").then(function (data) {
+    chartData=data;  
+    trump_data=data.filter(selTrump);
+    biden_data=data.filter(selBiden);
+    
+    //grouped by date
+    trump_grouped = trump_data.reduce(function (r, a) {
+                    r[a.Date] = r[a.Date] || [];
+                    r[a.Date].push(a);
+                    return r;
+                }, Object.create(null));
+    biden_grouped = biden_data.reduce(function (r, a) {
+                    r[a.Date] = r[a.Date] || [];
+                    r[a.Date].push(a);
+                    return r;
+                }, Object.create(null));
+    // Unique dates for x axis
+    var dates= Object.keys(biden_grouped);
+    // Values for calculating average
+    var total_biden=[];
+    var followersByDayB=[];
+    var friendsByDayB=[];
+    var avgFollowerB=[];
+    var avgFriendsB=[];
+    var total_trump=[];
+    var followersByDayT=[];
+    var friendsByDayT=[];
+    var avgFollowerT=[];
+    var avgFriendsT=[];
+    //Biden data
+    for(i=0;i<dates.length;i++){
+        total_biden.push(biden_grouped[dates[i]].length);
+        //Followers and friends Values
+        var followers=0;
+        var friends=0;
+        
+        for(var j=0;j<biden_grouped[dates[i]].length;j++ ){
+        followers+= biden_grouped[dates[i]][j]["Followers"];
+        friends+= biden_grouped[dates[i]][j]["Friends"];
+        };
+        followersByDayB.push(followers);
+        friendsByDayB.push(friends);
+        //calculate avg
+        avgFollowerB.push(Math.round(followersByDayB[i]/total_biden[i]));
+        avgFriendsB.push(Math.round(friendsByDayB[i]/total_biden[i]));
+    }
+    //Trump Data
+    for(i=0;i<dates.length;i++){
+        total_trump.push(trump_grouped[dates[i]].length);
+        //Followers and friends Values
+        var followers=0;
+        var friends=0;
+        
+        for(var j=0;j<trump_grouped[dates[i]].length;j++ ){
+        followers+= trump_grouped[dates[i]][j]["Followers"];
+        friends+= trump_grouped[dates[i]][j]["Friends"];
+        };
+        followersByDayT.push(followers);
+        friendsByDayT.push(friends);
+        //calculate avg
+        avgFollowerT.push(Math.round(followersByDayT[i]/total_trump[i]));
+        avgFriendsT.push(Math.round(friendsByDayT[i]/total_trump[i]));
+    }
+        new Chart(document.getElementById("myChart2"), {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [{ 
+              data: avgFollowerT,
+              label: "Average Followers ~ Trump",
+              borderColor: "#f01d1d",
+              fill: false,
+              showLine: false,
+              pointStyle: "star",
+              radius: 6
+            }, { 
+              data: avgFollowerB,
+              label: "Average Followers ~ Biden",
+              borderColor: "#242ba6",
+              fill: false,
+              showLine: false,
+              pointStyle: "cross",
+              radius: 6
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Tweeters'
+          }
+        }
+      });
+    //Trump Chart
+    // new Chart(document.getElementById("myChart2"), {
+    //     type: 'line',
+    //     data: {
+    //       labels: dates,
+    //       datasets: [{ 
+    //           data: avgFollowerT,
+    //           label: "Average Followers of Tweeters",
+    //           borderColor: "#3e95cd",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "star",
+    //           radius: 6
+    //         }, { 
+    //           data: avgFriendsT,
+    //           label: "Average Friends of Tweeters",
+    //           borderColor: "#8e5ea2",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "cross",
+    //           radius: 6
+    //         }
+    //       ]
+    //     },
+    //     options: {
+    //       title: {
+    //         display: true,
+    //         text: 'Trump Tweeters'
+    //       }
+    //     }
+    //   });
+    //       //Biden Chart
+    // new Chart(document.getElementById("myChart3"), {
+    //     type: 'line',
+    //     data: {
+    //       labels: dates,
+    //       datasets: [{ 
+    //           data: avgFollowerB,
+    //           label: "Average Followers of Tweeters",
+    //           borderColor: "#3e95cd",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "star",
+    //           radius: 6
+    //         }, { 
+    //           data: avgFriendsB,
+    //           label: "Average Friends of Tweeters",
+    //           borderColor: "#8e5ea2",
+    //           fill: false,
+    //           showLine: false,
+    //           pointStyle: "cross",
+    //           radius: 6
+    //         }
+    //       ]
+    //     },
+    //     options: {
+    //       title: {
+    //         display: true,
+    //         text: 'Biden Tweeters'
+    //       }
+    //     }
+    //   });
 });
-// });
-
-// function termFreq(){
-//   var canvas = document.getElementById('myChart');
-//   var extremo1=[-5, 3, 9, -11];
-//   var extremo2=[-5, 3, 9, -11];
-//   var data = {
-//   labels: ["Visua_Verbal", "Secuencial_Global", "Sensitivo_Intuitivo", "Reflexivo_Activo"],
-
-//   datasets: [
-//       {
-//        backgroundColor: 'rgba(63, 191, 191, 0.75)',
-//        borderColor: 'rgba(63, 191, 191, 0.75)',
-//        hoverBackgroundColor: 'rgba(191, 63, 63, 1)',
-//        hoverBorderColor: 'rgba(191, 63, 63, 1)',
-//                data: extremo1
-//       },
-//       {   
-//        backgroundColor: 'rgba(63, 191, 191, 0.75)',
-//        borderColor: 'rgba(63, 191, 191, 0.75)',
-//        hoverBackgroundColor: 'rgba(191, 63, 63, 1)',
-//        hoverBorderColor: 'rgba(191, 63, 63, 1)',
-//                data: extremo1
-//       }
-//   ]
-// };
-
-// var option = {
-//     maintainAspectRatio: false,
-//     responsive: true,
-//       scales: {
-//              xAxes: [{
-//                display: true,
-//                ticks: {
-//                maxTicksLimit: 12
-//                }
-//              }],
-//              yAxes: [{
-//                 position: "left",
-//                 display: true,
-//                 ticks: { 
-//                 callback:(label,index,labels)=>{
-//                 label = label.match(/_(\w*)/)[1];
-//                 return label;
-//                 }}
-//                 },
-//                 {
-//                  position: "right",
-//                  display: true,
-//                  ticks: {
-
-//                  callback:(label,index,labels)=>{
-//                  return label ;
-//                  }
-//                 }
-//                }]
-//                },
-//                legend: {
-//                        display: false
-//               }
-
-// };
-// var myLineChart = new Chart(canvas,{
-//   type: 'horizontalBar',
-//   data:data,
-// options:option
-// });
-// };

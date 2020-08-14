@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
   <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-  <link rel="stylesheet" type="text/css" href="./static/css/doughnut.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/audience.css">
 ​
   </head>
 ​
@@ -72,20 +72,36 @@
 ​
   <!-- Start of container -->
     <div class="container">
+      <div class="footer"></div>
       <div class="row">
-        
-        <div id="doughnut" class="col-lg-5 col-sm-10">
-          <h3 class="description-header">Audience Classification</h3>
-          <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+        <!-- Plotly chart will be drawn inside this DIV</div> -->
             <!-- <canvas class="plot-doughnut"id="doughnut-chart" width="800" height="650"></canvas> -->
             <!-- We append our chart here. -->  
-        </div>
-        <div class="col-lg-1"></div>
-        <div class="col-lg-6 col-md-10" id="table">
+        <!-- </div> -->
+        <!-- <div class="col-lg-1"></div> -->
+        <div class="col-lg-8 col-md-10" id="page">
           <div id="chart">
           ​<canvas id="myChart" width="600" height="400"></canvas>
         </div>
-
+        </div>
+        <div class="col-lg-4 col-md-2" id="display" height="30px">
+        <div class="boxes">
+          <!-- <p>This is text box   1-display first observation</p>
+          <p>This is text box 2-display second observation</p>
+          <p>This is text box 3-display third observation</p> -->
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 col-md-12">
+          <div id="chart2">
+          ​<canvas id="myChart2" width="600" height="400"></canvas>
+        </div>
+        </div>
+        <div class="col-lg-5 col-md-12">
+          <div id="chart3">
+          ​<canvas id="myChart3" width="600" height="400"></canvas>
+        </div>
         </div>
       </div>
     </div>
