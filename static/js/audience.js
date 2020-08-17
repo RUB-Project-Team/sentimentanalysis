@@ -1,166 +1,154 @@
+var url = '/tweetsSource';
+    d3.json(url).then(function (data) {
+        grouped = data.reduce(function (r, a) {
+            r[a.Source] = r[a.Source] || [];
+            r[a.Source].push(a);
+            return r;
+        }, Object.create(null));
+        var source=Object.keys(grouped);
+        var dict={}
+        for(i=0; i< source.length; i++){
+            dict[source[i]]=grouped[source[i]].length
+        }
+        var items = Object.keys(dict).map(function(key) {
+            return [key, dict[key]];
+          });
+          // Sort the array based on the second element
+          items.sort(function(first, second) {
+            return second[1] - first[1];
+          });
+          var graphData=items.slice(0,5);
+  var data1 = {
+    datasets: [{
+        data: [
+            graphData[0][1],
+            graphData[1][1],
+            graphData[2][1],
+            graphData[3][1],
+            graphData[4][1]
+        ],
+        backgroundColor: [
+            "rgba(255, 0, 0, 0.4)",
+            "rgba(0,255,0,0.4)",
+            "rgba(255,255,0,0.5)",
+            "#E7E9ED",
+            "#36A2EB"
+        ],
+        label: 'My dataset' // for legend
+    }],
+    labels: [
+        graphData[0][0],
+        graphData[1][0],graphData[2][0],graphData[3][0],graphData[4][0]
+    ]
+};
+var ctx = $("#myChart");
+new Chart(ctx, {
+    data: data1,
+    type: 'polarArea',
+    fillOpacity: .3
+});
+});
+
+
 function selTrump(d){
     return d["Matched Keywords"]=="Trump"
   };
-  function selBiden(d){
+function selBiden(d){
     return d["Matched Keywords"]=="Biden"
   };
-  function selPositive(d){
-    return d.Prediction=="Positive"
-};
-function selNeutral(d){
-    return d.Prediction=="Neutral"
-};
-function selNegative(d){
-    return d.Prediction=="Negative"
-};
-
 var chartData="";
 var trump_data="";
 var biden_data="";
-var positiveTrump="";
-var positiveBiden="";   
-var negativeTrump="";
-var negativeBiden="";
-var neutralTrump="";
-var neutralBiden="";
-var xValues="";
-var y1=[];
-var y2=[];
-var y3=[];
-var y4=[];
-var y5=[];
-var y6=[];
-var url="/tweetData"
-d3.json(url).then(function (data) {
-// d3.json("/tweetData", function (err, data) {
-​
-chartData=data;  
-trump_data=data.filter(selTrump);
-biden_data=data.filter(selBiden);
-positiveTrump=trump_data.filter(selPositive);
-positiveBiden=biden_data.filter(selPositive);   
-negativeTrump=trump_data.filter(selNegative);
-negativeBiden=biden_data.filter(selNegative);
-neutralTrump=trump_data.filter(selNeutral);
-neutralBiden=biden_data.filter(selNeutral);
-var dates = chartData.reduce(function (r, a) {
-    r[a.Date] = r[a.Date] || [];
-    r[a.Date].push(a);
-    return r;
-}, Object.create(null));
-// console.log(dates)
-    xValues=Object.keys(dates)
-    // y1, y2, y3, y4, y5, y6="";
-    for(var i=0; i< xValues.length; i++){
-        var grouped = positiveTrump.reduce(function (r, a) {
-            r[a.Date] = r[a.Date] || [];
-            r[a.Date].push(a);
-            return r;
-        }, Object.create(null));
-        y1.push(grouped[xValues[i]].length);
-        var grouped2 = negativeTrump.reduce(function (r, a) {
-            r[a.Date] = r[a.Date] || [];
-            r[a.Date].push(a);
-            return r;
-        }, Object.create(null));
-        y2.push(grouped2[xValues[i]].length);
-        var grouped3 = neutralTrump.reduce(function (r, a) {
-            r[a.Date] = r[a.Date] || [];
-            r[a.Date].push(a);
-            return r;
-        }, Object.create(null));
-        y3.push(grouped3[xValues[i]].length);
-​
-        var grouped4 = positiveBiden.reduce(function (r, a) {
-          r[a.Date] = r[a.Date] || [];
-          r[a.Date].push(a);
-          return r;
-      }, Object.create(null));
-      y4.push(grouped4[xValues[i]].length);        
-      
-      var grouped5 = negativeBiden.reduce(function (r, a) {
-        r[a.Date] = r[a.Date] || [];
-        r[a.Date].push(a);
-        return r;
-    }, Object.create(null));
-    y5.push(grouped5[xValues[i]].length);        
-    
-    var grouped6 = neutralBiden.reduce(function (r, a) {
-      r[a.Date] = r[a.Date] || [];
-      r[a.Date].push(a);
-      return r;
-  }, Object.create(null));
-  y6.push(grouped6[xValues[i]].length);
-        }
-      // });
-    // });
-//Trump chart
-new Chart(document.getElementById("myChart"), {
-    type: 'line',
-    data: {
-      labels: xValues,
-      datasets: [{ 
-          data: y1,
-          label: "Positive",
-          borderColor: "#17a327",
-          fill: false
-        }, { 
-          data: y2,
-          label: "Negative",
-          borderColor: "#f01d1d",
-          fill: false
-        }, { 
-          data: y3,
-          label: "Neutral",
-          borderColor: "#d5db23",
-          fill: false
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Trump Tweets'
-      },
-      xAxes: [{
-        ticks: {
-          // autoSkip: false,
-          maxRotation: 90,
-          minRotation: 45
-        }
-      }]
+//read URL for data
+
+d3.json("/tweetUser").then(function (data) {
+    chartData=data;  
+    trump_data=data.filter(selTrump);
+    biden_data=data.filter(selBiden);
+    //grouped by date
+    trump_grouped = trump_data.reduce(function (r, a) {
+                    r[a.Date] = r[a.Date] || [];
+                    r[a.Date].push(a);
+                    return r;
+                }, Object.create(null));
+    biden_grouped = biden_data.reduce(function (r, a) {
+                    r[a.Date] = r[a.Date] || [];
+                    r[a.Date].push(a);
+                    return r;
+                }, Object.create(null));
+    // Unique dates for x axis
+    var dates= Object.keys(biden_grouped);
+    // Values for calculating average
+    var total_biden=[];
+    var followersByDayB=[];
+    var friendsByDayB=[];
+    var avgFollowerB=[];
+    var avgFriendsB=[];
+    var total_trump=[];
+    var followersByDayT=[];
+    var friendsByDayT=[];
+    var avgFollowerT=[];
+    var avgFriendsT=[];
+    //Biden data
+    for(i=0;i<dates.length;i++){
+        total_biden.push(biden_grouped[dates[i]].length);
+        //Followers and friends Values
+        var followers=0;
+        var friends=0;
+        for(var j=0;j<biden_grouped[dates[i]].length;j++ ){
+        followers+= biden_grouped[dates[i]][j]["Followers"];
+        friends+= biden_grouped[dates[i]][j]["Friends"];
+        };
+        followersByDayB.push(followers);
+        friendsByDayB.push(friends);
+        //calculate avg
+        avgFollowerB.push(Math.round(followersByDayB[i]/total_biden[i]));
+        avgFriendsB.push(Math.round(friendsByDayB[i]/total_biden[i]));
     }
-  });
-​
-//Biden Chart
-  new Chart(document.getElementById("myChart2"), {
-    type: 'line',
-    data: {
-      labels: xValues,
-      datasets: [{ 
-          data: y4,
-          label: "Positive",
-          borderColor: "#17a327",
-          fill: false
-        }, { 
-          data: y5,
-          label: "Negative",
-          borderColor: "#f01d1d",
-          fill: false
-        }, { 
-          data: y6,
-          label: "Neutral",
-          borderColor: "#d5db23",
-          fill: false
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Biden Tweets'
-      }
+    //Trump Data
+    for(i=0;i<dates.length;i++){
+        total_trump.push(trump_grouped[dates[i]].length);
+        //Followers and friends Values
+        var followers=0;
+        var friends=0;
+        for(var j=0;j<trump_grouped[dates[i]].length;j++ ){
+        followers+= trump_grouped[dates[i]][j]["Followers"];
+        friends+= trump_grouped[dates[i]][j]["Friends"];
+        };
+        followersByDayT.push(followers);
+        friendsByDayT.push(friends);
+        //calculate avg
+        avgFollowerT.push(Math.round(followersByDayT[i]/total_trump[i]));
+        avgFriendsT.push(Math.round(friendsByDayT[i]/total_trump[i]));
     }
-  });
-// });
+        new Chart(document.getElementById("myChart3"), {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [{ 
+              data: avgFollowerT,
+              label: "Average Followers ~ Trump",
+              borderColor: "#F01D1D",
+              fill: false,
+              showLine: false,
+              pointStyle: "star",
+              radius: 6
+            }, { 
+              data: avgFollowerB,
+              label: "Average Followers ~ Biden",
+              borderColor: "#242BA6",
+              fill: false,
+              showLine: false,
+              pointStyle: "cross",
+              radius: 6
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Tweeters'
+          }
+        }
+      });
 });

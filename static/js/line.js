@@ -32,7 +32,7 @@ var y5=[];
 var y6=[];
 var url="/tweetData"
 d3.json(url).then(function (data) {
-  //console.log(data)
+// d3.json("/tweetData", function (err, data) {
 
 chartData=data;  
 trump_data=data.filter(selTrump);
@@ -95,9 +95,7 @@ var dates = chartData.reduce(function (r, a) {
       // });
     // });
 //Trump chart
-
-
-new Chart(document.getElementById("myChart"), {
+new Chart(document.getElementById("myChart1"), {
     type: 'line',
     data: {
       labels: xValues,
@@ -164,5 +162,5 @@ new Chart(document.getElementById("myChart"), {
       }
     }
   });
-
+// });
 });
