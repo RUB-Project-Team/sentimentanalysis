@@ -102,7 +102,7 @@
               {% if prediction|length > 1 %}
               <div class="col-md-3">
                
-                <table width="125">
+                <table width="140">
                   {% for key in prediction %}
                   <tr>
                     <th> {{key}} :</th><td>{{"%.2f"|format(prediction[key]|float)}}%</td>

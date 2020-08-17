@@ -71,13 +71,13 @@ def predictSentiment():
                 pred_data = tfidf_model.transform([text])
 
                 # Predict sentiment - 3 models for 3 sentiments
-                positive = loaded_model[0].predict_proba(pred_data)[0][1]
-                negative = loaded_model[1].predict_proba(pred_data)[0][1]
-                neutral = loaded_model[2].predict_proba(pred_data)[0][1]
+                positive = (loaded_model[0].predict_proba(pred_data)[0][1])*100
+                negative = (loaded_model[1].predict_proba(pred_data)[0][1])*100
+                neutral = (loaded_model[2].predict_proba(pred_data)[0][1])*100
 
-                if positive >0.5:
+                if positive >50:
                     sentText="Positive"
-                elif negative >0.5:
+                elif negative >50:
                     sentText="Negative"
                 else:
                     sentText="Neutral"
