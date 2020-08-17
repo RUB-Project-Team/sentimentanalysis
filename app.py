@@ -1,11 +1,28 @@
 # Import libraries
 from flask import Flask, render_template, request, jsonify
 import pickle
+
+from numpy.core.defchararray import strip
+from sklearn.linear_model import LogisticRegression
+from nltk.stem.snowball import SnowballStemmer
+from nltk.tokenize import RegexpTokenizer
 from dataBase.dbFunction import *
 
-modelFile = 'sentiment_model.pickle'
+# Model File Path
+model_file_name = 'final_model.pickle'
+tfidf_model_file_name = 'tfidf_model.pickle'
 
 app = Flask(__name__)
+
+# Function for ML Model
+stemmer = SnowballStemmer("english")
+tokenizer = RegexpTokenizer("[a-z']+")
+
+
+def tokenize(text):
+    tokens = tokenizer.tokenize(text)
+    return [stemmer.stem(t) for t in tokens]
+
 
 # Take care of page not found
 @app.errorhandler(404)
@@ -14,14 +31,17 @@ def not_found(e):
     # redirect to home page - we can always show custom page
     return render_template("index.html", title="Tweeter Sentiment Analysis")
 
+
 @app.route("/")
 @app.route("/sentimentAnalysis")
 def sentimentAnalysis():
-    return render_template("index.html", data="")  
+    return render_template("index.html", data="")
+
 
 @app.route("/tweetData")
 def tweetData():
     return jsonify(tweetsData())
+
 
 @app.route("/tweetUser")
 def tweetUser():
@@ -37,26 +57,48 @@ def tweetsSource():
 def predictSentiment():
     if request.method == 'POST':
         try:
+            prediction = ""
             # Reading the inputs given by the user
-            text = float(request.form['tweet'])
+            text = request.form['tweetText']
 
-            # Loading the model file  
-            loaded_model = pickle.load(open(modelFile, 'rb'))
+            if strip(text) != "":
 
-            # Predict sentiment
-            prediction = loaded_model.predict(text)
+                # Loading the model file
+                loaded_model = pickle.load(open(model_file_name, 'rb'))
+                tfidf_model = pickle.load(open(tfidf_model_file_name, 'rb'))
 
-            # Print prediction
-            print('prediction is', prediction)
+                # Transform input value
+                pred_data = tfidf_model.transform([text])
 
-            # Show the prediction results in a UI
-            return render_template('prediction.html', prediction=prediction)
+                # Predict sentiment - 3 models for 3 sentiments
+                positive = loaded_model[0].predict_proba(pred_data)[0][1]
+                negative = loaded_model[1].predict_proba(pred_data)[0][1]
+                neutral = loaded_model[2].predict_proba(pred_data)[0][1]
+
+                if positive >0.5:
+                    sentText="Positive"
+                elif negative >0.5:
+                    sentText="Negative"
+                else:
+                    sentText="Neutral"
+
+                # Build a dictionary to return values
+                prediction = {"Positive": positive, "Negative": negative, "Neutral": neutral}
+
+                # Print prediction
+                print('prediction is', prediction)
+
+                # Show the prediction results in a UI
+                return render_template('demo.html', prediction=prediction, sText=text, sentText=sentText)
+            else:
+                return render_template('demo.html', prediction='', sText='')
 
         except Exception as e:
             print('The Exception message is: ', e)
-            return 'Error occurred during predicting results'
+            return render_template('demo.html', prediction=text)
     else:
-        return render_template('index.html')
+        return render_template('demo.html')
+
 
 # #Application set to debug mode - update debug flag = False once testing is done
 # def create_app():

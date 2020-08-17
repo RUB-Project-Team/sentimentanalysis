@@ -6,13 +6,13 @@
   ​<title>Predict Sentiment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="../images/twitter-icon.png" type="image/x-icon" sizes="16x16">
+  <link rel="icon" href="../static/images/twitter-icon.png" type="image/x-icon" sizes="16x16">
 
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-  ​
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">​
 </head>
 ​
 
@@ -21,8 +21,8 @@
   <div class="navigation">
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-      <img src="../Images/Twitter-formula.png" width="50" height="50">
-      <a class="navbar-brand" href="../../index.html">Twitter Sentiment Analysis</a>
+      <img src="../static/Images/Twitter-formula.png" width="50" height="50">
+      <a class="navbar-brand" href="index.html">Twitter Sentiment Analysis</a>
       <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,29 +32,29 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownTwo" role="button"
               aria-haspopup="true" aria-expanded="false">Visualization</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="../pages/wordCloud.html">Word Cloud</a>
-              <a class="dropdown-item" href="../pages/sentiment.html">Sentiment</a>
-              <a class="dropdown-item" href="../pages/audience.html">Audience</a>
+              <a class="dropdown-item" href="../static/pages/wordCloud.html">Word Cloud</a>
+              <a class="dropdown-item" href="../static/pages/sentiment.html">Sentiment</a>
+              <a class="dropdown-item" href="../static/pages/audience.html">Audience</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/demo.html">Demo</a>
+            <a class="nav-link" href="/predictSentiment">Prediction</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/doc.html">Documentation</a>
+            <a class="nav-link" href="../static/pages/doc.html">Documentation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/ref.html">References</a>
+            <a class="nav-link" href="../static/pages/ref.html">References</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/contact.html">Contact</a>
+            <a class="nav-link" href="../static/pages/contact.html">Contact</a>
           </li>
         </ul>
       </div>
@@ -78,10 +78,12 @@
             <div class="container-test-api">
               <div class="col query-col">
                 <h1 class="description-header">Test with your own Tweet</h1>
-                <form class="text-form">
-                  <div class="form-group"> <textarea class="form-control" height="100"></textarea> </div>
+                <form action="/predictSentiment" method="POST">
+                  <div class="form-group"> <textarea class="form-control" id="tweetText" name="tweetText"
+                      ></textarea> </div>
                   <div class="form-error-msg" style="color: red"></div>
-                  <button type="submit" class="btn_blue">Predict Sentiment</button>
+                  <input type="image" src="../static/Images/sentiment.png" alt="Submit" width="150">
+
                 </form>
               </div>
               <div id="loader" style="display: none;"></div>
@@ -91,30 +93,37 @@
       </div>
       <!-- Start of Visualizations imageNav Area -->
       <div class="col-lg-6 col-md-12">
-        <h1 class="description-header"><img src="../Images/sentiment.png" width="200"></h1>
+        <b>Sentiment Text: </b> {{sText}}
         <hr />
         <!--div class="container"-->
-        <div class="row">
-          <div class="col-6">
-            <div class="col-md-6 col-header">Tag</div>
+        <!-- <div class="row"> -->
+          <div class="container">
+            <div class="row">
+              {% if prediction|length > 1 %}
+              <div class="col-md-3">
+               
+                <table width="125">
+                  {% for key in prediction %}
+                  <tr>
+                    <th> {{key}} :</th><td>{{"%.2f"|format(prediction[key]|float)}}%</td>
+                  </tr>
+                    {% endfor %}
+                </table>
+           
+              </div>
+              <div class="col-md-3 col-lg-6">
+                <div class="container">
+                  <b>Overall Sentiment: </b> {{sentText}}
+                </div>  
+              </div>
+              {% endif %}
           </div>
-          <div class="col-6">
-            <div class="col-md-6 col-header">Confidence</div>
-          </div>
-          <div class="col-6">
-            <br>
-            <div class="col-md-6 col-label col-tag">Positive</div>
-          </div>
-          <div class="col-6">
-            <br>
-            <div class="col-md-6 col-label col-probability">100%</div>
-          </div>
-        </div>
-      </div>
-      <!-- End of the Visualizations imageNav Area -->
+          
+        <!-- </div> -->
+        <!-- End of the Visualizations imageNav Area -->
 
+      </div>
     </div>
-  </div>
   </div>
   <!-- End of container -->
   ​
