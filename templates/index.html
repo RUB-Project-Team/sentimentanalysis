@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-
   <meta charset="UTF-8">
   <title>Twitter Sentiment Analysis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="../images/twitter-icon.png" type="image/x-icon" sizes="16x16">
+  <link rel="icon" href="../static/images/twitter-icon.png" type="image/x-icon" sizes="16x16">
 
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+​   <link rel="stylesheet" type="text/css" href="../static/css/doughnut.css">
+  ​<style>
+    .container {
+      /* border: 0.5px solid gray; */
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+      /* content: ''; */
+      display: block;
 
+    }
+  </style>
   </head>
-
+​
   <body>
     <!-- Start of navbar -->
   <div class="navigation">
@@ -32,18 +42,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.html">Home</a>
             </li>
+             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
                    id="navbarDropdownTwo" role="button" aria-haspopup="true" aria-expanded="false">Visualization</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="../static/pages/wordCloud.html">Word Cloud</a>
+                  <a class="dropdown-item" href="../static/pages/visualization.html">Word Cloud</a>
                   <a class="dropdown-item" href="../static/pages/sentiment.html">Sentiment</a>
                   <a class="dropdown-item" href="../static/pages/audience.html">Audience</a>
                 </div>
               </li>
             <li class="nav-item">
-                <a class="nav-link" href="../static/pages/demo.html">Demo</a>
-
+                <a class="nav-link" href="/predictSentiment">Demo</a>
               </li>
             <li class="nav-item">
                 <a class="nav-link" href="../static/pages/doc.html">Documentation</a>
@@ -59,7 +69,7 @@
       </nav>
   </div>
     <!-- End of navbar -->
-<br><br>
+​<br><br>
   <!-- Start of container -->
     <div class="container">
          <div class="description-summary">
@@ -68,51 +78,34 @@
               and expect from the candidate running for the office. This kind of analysis is part of election
               campaign strategy.
             <hr/>
-         </div>
-      <section class="row">
-        <div class="col-lg-6 col-md-12">
-          <!--div class="description-content"-->
-            <h1 class="description-header">President Donald Trump ~ Joe Biden</h1>
-            <hr>
-            <img src="static/Images/Image2.jpg" alt="DATA Visualization" class="description-image">
-            <p>SENTIMENT ANALYSIS ..............</p>
-            <p>Twitter..............</p>
-        </div>
-          <!-- Start of Visualizations imageNav Area -->
-        <div class="col-lg-6 col-md-12">
-              <h1 class="description-header">Charts</h1>
-              <hr/>
-                In politics, sentiment analysis is widely used to understand individual views, what they think and expect from the candidate running for the office. This kind of analysis is part of election campaign strategy.
-              <!--div class="container"-->
-                <div class="row">
-                    <div class="col-6">
-                        <a href="#linkhtmlfile">
-                             <img src="static/Images/image1.png" alt="T1 vs B1",
-                                  title="CHART 1" class="imageNav-photo">
-                        </a>
-                    </div>
-                    <div class="col-6">
-                         <a href="#linkhtmlfile">
-                             <img src="static/Images/image2.png" alt="T2 vs B2", title="CHART 2" class="imageNav-photo">
-                         </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="#linkhtmlfile">
-                             <img src="static/Images/image3.jpeg" alt="T3 vs B3", title="CHART 3", class="imageNav-photo">
-                         </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="#linkhtmlfile">
-                             <img src="static/Images/image4.png" alt="T4 vs B4", title="CHART 4", class="imageNav-photo">
-                        </a>
-                    </div>
+            <div class="container">
+              <div class="row">
+          
+                <div id="doughnut" class="col-lg-5 col-sm-10">
+                  <h3 class="description-header">Trump vs Biden Tweet Classification (%)</h3>
+                  <p style="color: gray;font-size:smaller;"><i>Click on individual leaves to see date based tweet counts.</i></p>
+                  <hr>
+                  <div id='myDiv'>
+                    <!-- Plotly chart will be drawn inside this DIV -->
+                  </div>
+                  <!-- <canvas class="plot-doughnut"id="doughnut-chart" width="800" height="650"></canvas> -->
+                  <!-- We append our chart here. -->
                 </div>
-        </div>
-              <!-- End of the Visualizations imageNav Area -->
-       </section>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6 col-md-10" id="table">
+                  <div id="chart">
+                    ​<canvas id="barchartcanvas"></canvas>
+                  </div>
+                  <table id="table1">
+                    <thead></thead>
+                    <tbody></tbody>
+                </div>
+              </div>
+            </div> 
+         </div>
     </div>
     <!-- End of container -->
-
+​
     <!-- Start of footer -->
     <footer>
       <div class="footer">© Analysis Copyright Ajay Archana Hasti Akshita Aslam Rutgers Data Science Bootcamp.</div>
@@ -128,4 +121,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+  <!-- JS -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
+  <script type="text/javascript" src="static/js/doughnut.js"></script>
   </body>
