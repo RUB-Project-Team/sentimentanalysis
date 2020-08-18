@@ -60,7 +60,7 @@
     </nav>
   </div>
   <!-- End of navbar -->
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-12" style="text-align:center">
         <h4 style="margin-top:80px; margin-bottom:20px;">
@@ -85,10 +85,9 @@
                 (and you could even track sentiment over time to see how it evolves).
 
                 <br><br>
-                We are using machine learning to find out! For the past few days, team have been collecting tens and
-                thousand's
-                of tweets posted by users from around the world that discuss this topic and classifying them using
-                sentiment analysis . That is, for each tweet published that mentions either
+                We will be using machine learning to find out Tweet sentiment. For the past few days, team have been
+                collecting tens and thousands of tweets posted by users from around the world that discuss this topic and classifying them using
+                sentiment analysis. That is, for each tweet published that mentions either
                 Donald Trump or Joe Biden, tags it with its sentiment, which can be either positive, neutral, or
                 negative.
             </dl>
@@ -133,7 +132,7 @@
             Data cleaning and normalization
           </dt>
           <dd>
-            From our raw data inputs we cleaned and normalized the data with the goal of extracting useful keywords and
+            From our raw data inputs, we cleaned and normalized the data with the goal of extracting useful keywords and
             predict the tweet sentiment.
           </dd>
           <dt>
@@ -167,13 +166,13 @@
           </dt>
           <dd>
             Volume of tweets per minute is huge. Due to limitation of hardware, storage and practicality
-            on volume of Data, team decided to retrieve cloe to 10K tweets per day for a week duration.
+            on volume of Data, team decided to retrieve ~10K tweets per day for 11 days.
           </dd>
           <dt>
             Data Retrieval
           </dt>
           <dd>
-            Twitter allows data retrieval through API up to seven days time period.
+            Twitter allows data retrieval through API up to eleven days.
           </dd>
           <dt>
             Word Classification
@@ -186,7 +185,8 @@
             EDA Process
           </dt>
           <dd>
-            Extensive EDA process is involved that includes spell check for every word.
+            Extensive EDA process is involved that includes tweet data cleaning using regex, stop words, spell check
+            etc.
           </dd>
           <dt>
             Data Processing Resources
@@ -214,9 +214,6 @@
         <dd>
           Twitter Stream
         </dd>
-        <dd>
-          Pandas to read csv files
-        </dd>
 
         <dt>
           <hr width="200">
@@ -229,6 +226,9 @@
         </dd>
         <dd>
           numPy - data handling
+        </dd>
+        <dd>
+          corpora For Spell Correction
         </dd>
         <dt>
           <hr width="200">
@@ -247,6 +247,9 @@
         </dd>
         <dd>
           NLTK Corpus
+        </dd>
+        <dd>
+          Google NLP API
         </dd>
         <dt>
           <hr width="200">
@@ -312,7 +315,7 @@
           Visual Studio
         </dd>
         <dd>
-          Jupyter Nootebook
+          Jupyter Notebook
         </dd>
         <dt>
           <hr width="200">
