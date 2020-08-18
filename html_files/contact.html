@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+​
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+​
+    <title>Bootstrap Visualization Dashboard</title>
+​
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+  <link rel="stylesheet" type="text/css" href="/Users/hasti/Desktop/sample3/static/css/style.css">
+​
+  </head>
+​
+  <body>
+    <!-- Start of navbar -->
+  <div class="navigation">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Sentiment Analysis on Twitter</a>
+        <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+​
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">LIST 1</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#linkhtmlfile1">FILE 1</a>
+                <a class="dropdown-item" href="#linkhtmlfile2">FILE 2</a>
+                <a class="dropdown-item" href="#linkhtmlfile3">FILE 3</a>
+                <a class="dropdown-item" href="#linkhtmlfile4">FILE 4</a>
+              </div>
+            </li> -->
+            <!-- <li class="nav-item">
+        <a class="nav-link" href="#linkhtmlfile">LIST2</a>
+            </li> -->
+             <li class="nav-item dropdown">
+                <a href="Models.html" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Models</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="models_F1.html">FILE 1</a>
+                  <a class="dropdown-item" href="models_F2.html">FILE 2</a>
+                  
+                </div> 
+              <!-- </li>
+            <li class="nav-item">
+        <a class="nav-link" href="#linkhtmlfile">LIST 3</a>
+            </li> -->
+            <li class="nav-item dropdown">
+                <a href="tech.html" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">Technologies</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="tech_F1.html">FILE 1</a>
+                  <a class="dropdown-item" href="tech_F2.html">FILE 2</a>
+                  
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Demo.html">Demo</a>
+
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+             <!--  <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">About Us</a> -->
+                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#linkhtmlfile1">Contact Info</a>
+                  <a class="dropdown-item" href="#linkhtmlfile2">Profile</a> -->
+                  
+                </div>
+              </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  .card {
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    margin-left: 110px;
+      }
+    i{
+        margin: 5px;
+        align-items: center;
+      }
+    i:hover{
+      color:grey  ;
+    }
+    .about-section {
+    padding: 35px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+    margin-bottom: 15px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .title {
+    color: grey;
+  }
+
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .button:hover {
+    background-color: #555;
+  }
+
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  </style>
+  </head>
+  <body>
+
+  <div class="about-section">
+  <!-- <div class="container-fluid"> --> 
+    <h1>About Us</h1>
+  </div>
+
+  <h2 style="text-align:center">Our Team Members</h2>
+    <div class="row">
+    <div class="column">
+      <div class="card" style="width: 18rem;">
+        <img src="ajay.jpeg" alt="Ajay" style="width:100%">
+        <div class="container">
+          <h2>Ajay Patil</h2>
+          <a href="https://github.com/patilaja" target="blank" style="color:black"><i class="fa fa-github" style="font-size:36px;margin-left: 55px" ></i></a>
+          <a href="https://www.linkedin.com/in/ajaypatil" target="blank" style="color:#0073B1"><i class="fa fa-linkedin-square" style="font-size:36px; margin-left: 10px"></i></a>
+          <a  href="#########" target="blank" style="color:black"><i class="fa fa-envelope" style="font-size:36px; margin-left: 10px"></i></a>
+        </div>
+      </div>
+    </div>
+    
+     <div class="column">
+      <div class="card" style="width: 18rem;">
+        <img src="akshita.jpeg" alt="Akshita" style="width:100%">
+        <div class="container">
+          <h2>Akshita Parasrampuria</h2>
+          <!-- <p class="title">Rutgers University</p>
+          <p>Data Anayst</p> -->
+           <a href="https://github.com/akshitap31" target="blank" style="color:black"><i class="fa fa-github" style="font-size:36px;margin-left: 55px" ></i></a>
+           <a href="https://www.linkedin.com/in/akshita-parasrampuria-786377169/" target="blank" style="color:#0073B1"><i class="fa fa-linkedin-square" style="font-size:36px; margin-left: 10px"></i></a>
+           <a  href="parasrampuriaakshita95@gmail.com" target="blank" style="color:black"><i class="fa fa-envelope" style="font-size:36px; margin-left: 10px"></i></a>
+         </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card" style="width: 18rem;">
+        <img src="archna.jpeg" alt="Archana" style="width:100%">
+        <div class="container">
+          <h2>Archna Ashish</h2>
+          <a href="https://github.com/ashisharchna" target="blank" style="color:black"><i class="fa fa-github" style="font-size:36px;margin-left: 55px" ></i></a>
+          <a href="https://www.linkedin.com/in/ashisharchna/" target="blank" style="color:#0073B1"><i class="fa fa-linkedin-square" style="font-size:36px; margin-left: 10px"></i></a>
+          <a  href="ashisharchna@gmail.com" target="blank" style="color:black"><i class="fa fa-envelope" style="font-size:36px; margin-left: 10px"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card" style="width: 18rem;">
+        <img src="aslam.jpeg" alt="Aslam" style="width:100%">
+        <div class="container">
+          <h2>Aslam Momin</h2>
+          <a href="https://github.com/iliveonit" target="blank" style="color:black"><i class="fa fa-github" style="font-size:36px;margin-left: 55px" ></i></a>
+          <a href="www.linkedin.com/in/aymomin" target="blank" style="color:#0073B1"><i class="fa fa-linkedin-square" style="font-size:36px; margin-left: 10px"></i></a>
+          <a  href="iliveonit@gmail.com" target="blank" style="color:black"><i class="fa fa-envelope" style="font-size:36px; margin-left: 10px"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="column">
+      <div class="card" style="width: 18rem;">
+        <img src="hasti.jpeg" alt="Hasti" style="width:100%">
+        <div class="container">
+          <h2>Hasti Patel</h2>
+          <a href="https://github.com/hastipatel14395" target="blank" style="color:black"><i class="fa fa-github" style="font-size:36px;margin-left: 55px" ></i></a>
+          <a href="https://www.linkedin.com/in/hasti-patel-n14p3/" target="blank" style="color:#0073B1"><i class="fa fa-linkedin-square" style="font-size:36px; margin-left: 10px"></i></a>
+          <a  href="hastipatel006@outlook.com" target="blank" style="color:black"><i class="fa fa-envelope" style="font-size:36px; margin-left: 10px"></i></a>
+        </div>
+      </div>
+    </div>
+
+   </div>
+
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+​
+</html>
+ 
