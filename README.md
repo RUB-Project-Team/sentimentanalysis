@@ -1,7 +1,7 @@
 # Twitter Sentiment Analysis of Presidential Candidates US Election 2020
 Project link : https://tweet-sentiments-analysis.herokuapp.com/
 
-![home](static/images/home.png)
+![home](static/Images/home.png)
 
 ## Motivation
 Using social media for political discourse is a common practice for good now, especially around election time. One interesting aspect of this trend is the possibility of pulsing the public’s opinion about the elections, and that has attracted the interest of many researchers and the press. 
