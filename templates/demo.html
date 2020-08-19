@@ -44,7 +44,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/predictSentiment">Prediction</a>
+            <a class="nav-link" href="../predictSentiment">Prediction</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../static/pages/doc.html">Documentation</a>
@@ -64,8 +64,8 @@
   <!-- Start of container -->
   <div class="container">
     <div class="col-md-12">
-      <br> <br>
-      <h4 class="description-header">President Donald Trump ~ Joe Biden</h4>
+      <br> <br><br>
+      <h5>ML Model - Predict Tweet Sentiment </h5>
       <hr />
     </div>
     <div class="row">
@@ -76,10 +76,9 @@
           <div class="container-module">
             <div class="container-test-api">
               <div class="col query-col">
-                <h1 class="description-header">Test with your own Tweet</h1>
                 <form action="/predictSentiment" method="POST">
-                  <div class="form-group"> <textarea class="form-control" id="tweetText" name="tweetText"
-                      ></textarea> </div>
+                  <div class="form-group"> <textarea class="form-control" id="tweetText" name="tweetText"></textarea>
+                  </div>
                   <div class="form-error-msg" style="color: red"></div>
                   <input type="image" src="../static/Images/sentiment.png" alt="Submit" width="150">
 
@@ -92,56 +91,58 @@
       </div>
       <!-- Start of Visualizations imageNav Area -->
       <div class="col-lg-6 col-md-12">
+        {% if prediction %}
         <b>Sentiment Text: </b> {{sText}}
         <hr />
         <!--div class="container"-->
         <!-- <div class="row"> -->
-          <div class="container">
-            <div class="row">
-              {% if prediction|length > 1 %}
-              <div class="col-md-3">
-               
-                <table width="140">
-                  {% for key in prediction %}
-                  <tr>
-                    <th> {{key}} :</th><td>{{"%.2f"|format(prediction[key]|float)}}%</td>
-                  </tr>
-                    {% endfor %}
-                </table>
-           
-              </div>
-              <div class="col-md-3 col-lg-6">
-                <div class="container">
-                  <b>Overall Sentiment: </b> {{sentText}}
-                </div>  
-              </div>
-              {% endif %}
-          </div>
-          
-        <!-- </div> -->
-        <!-- End of the Visualizations imageNav Area -->
+        <div class="container">
+          <div class="row">
+            {% if prediction|length > 1 %}
+            <div class="col-md-3">
 
+              <table width="140">
+                {% for key in prediction %}
+                <tr>
+                  <th> {{key}} :</th>
+                  <td>{{ prediction[key] }}%</td>
+                </tr>
+                {% endfor %}
+              </table>
+
+            </div>
+            <div class="col-md-3 col-lg-6">
+              <div class="container">
+                <b>Overall Sentiment: </b> {{sentText}}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+          <!-- </div> -->
+          <!-- End of the Visualizations imageNav Area -->
+
+        </div>
       </div>
     </div>
-  </div>
-  <!-- End of container -->
-  ​
-  <!-- Start of footer -->
-  <footer>
-    <div class="footer">© Analysis Copyright Ajay Archana Hasti Akshita Aslam Rutgers Data Science Bootcamp.</div>
-  </footer>
-  <!-- End of footer -->
-  ​
+    <!-- End of container -->
+    ​
+    <!-- Start of footer -->
+    <footer>
+      <div class="footer">© Analysis Copyright Ajay Archana Hasti Akshita Aslam Rutgers Data Science Bootcamp.</div>
+    </footer>
+    <!-- End of footer -->
+    ​
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
 
 </body>
