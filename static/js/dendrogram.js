@@ -9,7 +9,7 @@ var stratify = d3.stratify()
 var tree = d3.cluster()
     .size([360, 390])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
-var url="https://raw.githubusercontent.com/RUB-Project-Team/sentimentanalysis/Aslam/data.csv";
+var url="https://raw.githubusercontent.com/RUB-Project-Team/sentimentanalysis/master/Resources/data/data.csv";
 d3.csv(url).then(function(data) {
   // console.log(data);
 // //Plot
