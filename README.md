@@ -37,6 +37,15 @@ Visualizations were built using variety of JS libraries like Chart.js, Plotly.js
 ### VI. Dashboard and website
 The dashboard function of the website was built around the interactive visualizations and then the website was finally deployed on Heroku.
 
+## Tools and Technologies Used
+* Languages :- Python, JavaScript, HTML, CSS, Jinja, SQL.
+
+* Sentiment Prediction:- VADER Sentiment Analysis, TextBlob, NLTK, AFINN, Google NLP API
+
+* Database Setup:- ASW-RDS, PostgreSQL, SQLAlchemy, Heroku Postgres.
+
+* Dashboard and Website :- Heroku, Bootstrap Formatting.
+
 ## Limitations
 * **Data Volume**
 Volume of tweets per minute is huge. Due to limitation of hardware, storage and practicality on volume of Data, team decided to retrieve ~10K tweets per day for 11 days.
@@ -47,15 +56,6 @@ Volume of tweets per minute is huge. Due to limitation of hardware, storage and 
 
 * **Word Classification**
 Too many techniques are available to classify tweet though none shows accuracy to classify tweets correctly over 80%.
-
-## Tools and Technologies
-* Languages :- Python, JavaScript, HTML, CSS, Jinja, SQL.
-
-* Sentiment Prediction:- VADER Sentiment Analysis, TextBlob, NLTK, AFINN, Google NLP API
-
-* Database Setup:- ASW-RDS, PostgreSQL, SQLAlchemy, Heroku Postgres.
-
-* Dashboard and Website :- Heroku, Bootstrap Formatting.
  
 ## Group Members
 * Ajay Patil
