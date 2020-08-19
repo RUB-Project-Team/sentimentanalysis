@@ -18,8 +18,8 @@ The overall sentiment is often inferred as positive, neutral or negative from th
 ## Why Twitter?
 There are about 330 million monthly and 145 million daily active users on Twitter, sending accross 500 million tweets per day. A research has also found that 40 percent of users carried out a purchase after seeing it on Twitter, that's the kind of influence Twitter has on people.
 
-## Methodology
-### I. Corpus Collection and Preparation
+## Tasks Involved
+### I. Corpus Collection
 Twitter API and Twitter data streaming methods were used extract tweet data. We used an hour window every day for seven days to extract tweet data.
 
 ### II. Pre-processing and Data Normalization
