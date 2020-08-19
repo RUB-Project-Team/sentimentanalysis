@@ -147,7 +147,15 @@ d3.json("/tweetUser").then(function (data) {
         options: {
           title: {
             display: true,
-            text: 'Tweeters'
+            text: 'Average Followers of Tweeters of respective Candidates'
+          },
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Average Followers of Tweeters'
+              }
+            }]
           }
         }
       });
