@@ -23,7 +23,7 @@ There are about 330 million monthly and 145 million daily active users on Twitte
 Twitter API and Twitter data streaming methods were used extract tweet data. We used an hour window every day for seven days to extract tweet data.
 
 ### II. Pre-processing and Data Normalization
-Preprocessing a Twitter dataset involves a series of tasks like removing all types of irrelevant information like emojis, special characters and links, Stop Words Removal, Tokenizing, term frequency calculations. These tasks were performed using libraries llike NLTK, TextBlob.
+Preprocessing a Twitter dataset involves a series of tasks like removing all types of irrelevant information like emojis, special characters and links, Stop Words Removal, Tokenizing, term frequency calculations.
 
 ### III. Database management
 Normalized data was then loaded into a Postgres development database prior to being converted into a Heroku database.
@@ -48,6 +48,15 @@ Volume of tweets per minute is huge. Due to limitation of hardware, storage and 
 * **Word Classification**
 Too many techniques are available to classify tweet though none shows accuracy to classify tweets correctly over 80%.
 
+## Tools and Technologies
+* Languages :- Python, JavaScript, HTML, CSS, Jinja, SQL.
+
+* Sentiment Prediction:- VADER Sentiment Analysis, TextBlob, NLTK, AFINN, Google NLP API
+
+* Database Setup:- ASW-RDS, PostgreSQL, SQLAlchemy, Heroku Postgres.
+
+* Dashboard and Website :- Heroku, Bootstrap Formatting.
+ 
 ## Group Members
 * Ajay Patil
 * Akshita Parasrampuria
