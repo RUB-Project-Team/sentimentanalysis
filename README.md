@@ -23,19 +23,19 @@ There are about 330 million monthly and 145 million daily active users on Twitte
 Twitter API and Twitter data streaming methods were used extract tweet data. We used an hour window every day for seven days to extract tweet data.
 
 ### II. Pre-processing and Data Normalization
-Preprocessing a Twitter dataset involves a series of tasks like removing all types of irrelevant information like emojis, special characters and links, then Tokenizing. It can also involve making format improvements or Stop Words Removal.
+Preprocessing a Twitter dataset involves a series of tasks like removing all types of irrelevant information like emojis, special characters and links, Stop Words Removal, Tokenizing, term frequency calculations. These tasks were performed using libraries llike NLTK, TextBlob.
 
 ### III. Database management
 Normalized data was then loaded into a Postgres development database prior to being converted into a Heroku database.
 
-### IV. Machine Learning Model for Prediction
-A number of models were tested like ---- and the model with most accurate results was selected with Test score of --- 
+### IV. Machine Learning Model for Classification
+A number of models were tested like Decision Tree Classifier, Gausian Naive Bayes, Linear Discriminant Analysis, K-Nearest Neighbour, Logistic Regression, Support Vector Classification and Random Forest Classifier and the model with most accurate results, that is LogisticRegression was selected with Test score of 86.64%. 
 
 ### V. Analysis and visualization
 Visualizations were built using variety of JS libraries like Chart.js, Plotly.js, D3.js.
 
 ### VI. Dashboard and website
-The dashboard function of the website was built around the interactive visualizations.
+The dashboard function of the website was built around the interactive visualizations and then the website was finally deployed on Heroku.
 
 ## Limitations
 * **Data Volume**
