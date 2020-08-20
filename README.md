@@ -37,6 +37,7 @@ Visualizations were built using variety of JS libraries like Chart.js, Plotly.js
 ### VI. Dashboard and website
 The dashboard function of the website was built around the interactive visualizations and then the website was finally deployed on Heroku.
 
+
 ## Output
 
 1. Count of Tweets over the period for each sentiment and a sample of 5 tweets for each category
@@ -70,6 +71,7 @@ The dashboard function of the website was built around the interactive visualiza
 8. Model Deployment and live testing lets the user enter a sentence in the box on left and sentiment results under each model are shown on the right.
 
 ![img](static/Images/9.png)
+
 
 ## Tools and Technologies Used
 * Languages :- Python, JavaScript, HTML, CSS, Jinja, SQL.

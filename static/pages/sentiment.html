@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  ​<title>Tweet Sentiment Visualization </title>
+  <title>Tweet Sentiment Visualization</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="../images/twitter-icon.png" type="image/x-icon" sizes="16x16">
@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../css/style.css">
-  ​ <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
+  ​
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 </head>
 ​
@@ -46,7 +47,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/demo.html">Demo</a>
+            <a class="nav-link" href="/predictSentiment">Prediction</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../pages/doc.html">Documentation</a>
@@ -62,34 +63,34 @@
     </nav>
   </div>
   <!-- End of navbar -->
-  ​
+  ​<br><br>
   <!-- Start of container -->
   <div class="container">
     <div class="description-summary">
-      <h5 class="description-header">What is being said about Presidential Candidates</h5>
-      A word cloud (also known as a tag cloud or text cloud) is a visual representation of a text, in which the words
-      appear bigger the more often they are mentioned. Word clouds are a great tool to visualize unstructered text data
-      and get insights on trends and patterns..
-      <hr />
+      <h5 class="description-header">Presidential Candidates Twitter sentiment over time</h5>
+      <p>
+      <p>Twitter sentiment over a period gives some insight about the major decision, event or
+      happening that could change the sentiment towards each presidential candidate.
+      <p>
+        For example, on 11th August Joe Biden announced US Senator Kamala Harris as his VP candidate.
+      Twitter audience reacted to this news and there are the most relevant keywords for those positive tweets for Joe Biden.
     </div>
+    <!-- Start of Visualizations imageNav Area -->
     <section class="row">
       <div class="col-lg-6 col-md-12">
         <!--div class="description-content"-->
-        <h1 class="description-header">Sentiment towards President Donald Trump</h1>
+        <h6>President Donald Trump</h6>
         <hr>
-        ​<canvas id="myChart"></canvas>
+        ​<canvas id="myChart1"></canvas>
       </div>
-      <!-- Start of Visualizations imageNav Area -->
       <div class="col-lg-6 col-md-12">
-        <h1 class="description-header">Sentiment towards Joe Biden</h1>
+        <h6>Former Vice President Joe Biden</h6>
         <hr />
+        <br>
         <canvas id="myChart2"></canvas>
-
-        <!--div class="container"-->
-
       </div>
-      <!-- End of the Visualizations imageNav Area -->
     </section>
+    <!-- End of the Visualizations imageNav Area -->
   </div>
   <!-- End of container -->
   ​
@@ -103,11 +104,17 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   ​
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/line.js"></script>  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/line.js"></script>
 
 </body>
