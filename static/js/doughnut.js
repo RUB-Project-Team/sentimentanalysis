@@ -140,7 +140,17 @@ var ctx = document.getElementById("barchartcanvas").getContext("2d");
 // myBarChart.destroy()
 var myBarChart = new Chart(ctx, {
     type: 'bar',
-    data: barData
+    data: barData,
+    options: {
+      scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Tweet Count'
+        }
+      }]
+    }
+  } 
   });
 }
 // });

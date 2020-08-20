@@ -3,16 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  ​<title>Word Count Visualization</title>
+  <title>Word Count Visualization</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="../Images/twitter-icon.png" type="image/x-icon" sizes="16x16">
+  <link rel="icon" href="../images/twitter-icon.png" type="image/x-icon" sizes="16x16">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../css/style.css">
-  ​
+  ​<link rel="stylesheet" type="text/css" href="../css/dendrogram.css">
 </head>
 ​
 
@@ -61,27 +61,28 @@
     </nav>
   </div>
   <!-- End of navbar -->
-  ​
+ 
   <!-- Start of container -->
   <div class="container" align="middle">
     <div class="description-summary">
-      <h5 class="description-header">What is being said about Presidential Candidates</h5>
-      A word cloud (also known as a tag cloud or text cloud) is a visual representation of a text, in which the words
-      appear bigger the more often they are mentioned. Word clouds are a great tool to visualize unstructered text data
-      and get insights on trends and patterns..
-      <hr />
+      ​
+      <h5 class="description-header"><br><br>What people think about Presidential Candidates?</h5>
+      A word cloud (also known as a tag cloud or text cloud) is a visual representation of an unstructured data
+      in which the words appear bigger the more often they are mentioned. 
+      This chart shows the most relevant keywords from positive and negative tweet data. 
     </div>
+    <br>
     <section class="row">
       <div class="col-lg-6 col-md-12">
         <!--div class="description-content"-->
-        <h1 class="description-header">President Donald Trump Word Cloud</h1>
+        <h6>President Donald Trump</h6>
         <hr>
         <img src="../Images/trumpcloud1.jpeg" alt="Positive World Cloud" class="col-lg-12">
  
       </div>
       <!-- Start of Visualizations imageNav Area -->
       <div class="col-lg-6 col-md-12">
-        <h1 class="description-header">Joe Biden Word Cloud</h1>
+        <h6>Former Vice President Joe Biden</h6>
         <hr />
         <img src="../Images/bidencloud1.jpeg" alt="Positive World Cloud" class="col-lg-12">
       </div>
@@ -103,38 +104,49 @@
     <section class="row">
       <div class="col-lg-6 col-md-12">
         <!--div class="description-content"-->
-        <h1 class="description-header">President Donald Trump - Tweet Sentiments</h1>
-        <hr>
+        <!-- <h1 class="description-header">President Donald Trump - Tweet Sentiments</h1> -->
+        <hr/>
         <img src="../Images/trumpSentiWords.jpeg" alt="Tweet Sentiments share" class="col-lg-12">
       </div>
       <!-- Start of Visualizations imageNav Area -->
       <div class="col-lg-6 col-md-12">
-        <h1 class="description-header">Joe Biden  - Tweet Sentiments</h1>
-        <hr />
+        <!-- <h1 class="description-header">Joe Biden  - Tweet Sentiments</h1> -->
+        <hr/>
         <img src="../Images/bidenSentiWords.jpeg" alt="Tweet Sentiments share" class="col-lg-12">
       </div>
       <!-- End of the Visualizations imageNav Area -->
     </section>
   <section class="row">
-    <div class="col-sm-6 col-md-6"> 
-      <!--div class="description-content"-->
-      <h1 class="description-header">Overall Tweet Counts Trump ~ Biden</h1>
-      <hr>
-      <img src="../Images/OverallSentiment.jpeg" alt="Overall Count" class="col-lg-12">
-
-    </div>
-  </section>
-  <section class="row">
     <div class="col-lg-6 col-md-12">
+      <hr/>
       <!--div class="description-content"-->
       <img src="../Images/trumppie.jpeg" alt="Negative World Cloud" class="col-lg-12">
     </div>
     <!-- Start of Visualizations imageNav Area -->
     <div class="col-lg-6 col-md-12">
+      <hr/>
       <img src="../Images/bidenpie.jpeg" alt="Negative World Cloud" class="col-lg-12">
     </div>
     <!-- End of the Visualizations imageNav Area -->
-  </section>    
+  </section> 
+  <section class="row">
+    <div class="col-sm-6 col-md-6"> 
+      <hr/>
+      <!--div class="description-content"-->
+      <h6>Overall Tweet Counts Trump ~ Biden</h6>
+    
+      <img src="../Images/OverallSentiment.jpeg" alt="Overall Count" class="col-lg-12">
+
+    </div>
+    <div class="col-sm-6 col-md-6" id="my_dataviz"> 
+      <hr/>
+      <!--div class="description-content"-->
+      <h6 >Radial Dendrogram of 10 Most Used Positive and Negative Words</h6>
+      <img src="../Images/frequent.jpg" alt="Frequent Worlds" class="col-lg-8">
+
+    </div>
+
+  </section>   
 </div>
   <!-- End of container -->
   ​
@@ -155,4 +167,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script type="text/javascript" src="../js/dendrogram.js"></script> 
 </body>
+

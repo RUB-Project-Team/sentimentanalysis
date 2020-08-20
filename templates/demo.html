@@ -100,37 +100,124 @@
         <div class="container">
           <div class="row">
             {% if prediction|length > 1 %}
-            <div class="col-md-3">
-
-              <table width="140">
-                {% for key in prediction %}
+            <div class="col-md-4">
+              {% if sentText == "Positive" %}
+              <table width="160">
                 <tr>
-                  <th> {{key}} :</th>
-                  <td>{{ prediction[key] }}%</td>
+                  <th> Confidence :</th>
+                  <td>{{ prediction["Positive"] }}%</td>
                 </tr>
-                {% endfor %}
               </table>
-
+              {% endif %}
+              {% if sentText == "Negative" %}
+              <table width="160">
+                <tr>
+                  <th> Confidence :</th>
+                  <td>{{ prediction["Negative"] }}%</td>
+                </tr>
+              </table>
+              {% endif %}
+              {% if sentText == "Neutral" %}
+              <table width="160">
+                <tr>
+                  <th> Confidence :</th>
+                  <td>{{ prediction["Neutral"] }}%</td>
+                </tr>
+              </table>
+              {% endif %}
             </div>
-            <div class="col-md-3 col-lg-6">
+            <div class="col-md-4 col-lg-6">
               <div class="container">
-                <b>Overall Sentiment: </b> {{sentText}}
+                <b>AAHAA Model Sentiment: </b>
+              </div>
+              <div class="container">
+                <b></b> {{sentText}}
               </div>
             </div>
             {% endif %}
           </div>
-          {% endif %}
-          <!-- </div> -->
-          <!-- End of the Visualizations imageNav Area -->
+          <br>
+          <div class="row">
+            {% if gSentiment|length > 1 %}
+            <div class="col-md-4">
+              <table width="160">
 
+                {% for key in gSentiment %}
+                <tr>
+                  <th> {{key}} :</th>
+                  <td>{{ gSentiment[key] }}%</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <div class="col-md-3 col-lg-6">
+              <div class="container">
+                <b>Google NPL Sentiment: </b>
+              </div>
+              <div class="container">
+                <b> </b> {{gSentimentT}}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <br>
+          <div class="row">
+            {% if vSentiment|length > 1 %}
+            <div class="col-md-4">
+              <table width="160">
+                {% for key in vSentiment %}
+                <tr>
+                  <th> {{key}} :</th>
+                  <td>{{ vSentiment[key] }}%</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <div class="col-md-3 col-lg-6">
+              <div class="container">
+                <b>VADER Model Sentiment: </b>
+              </div>
+              <div class="container">
+                <b></b> {{vSentimentT}}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <br>
+          <div class="row">
+            {% if tSentiment|length > 1 %}
+            <div class="col-md-4">
+              <table width="160">
+                {% for key in tSentiment %}
+                <tr>
+                  <th> {{key}} :</th>
+                  <td>{{ tSentiment[key] }}%</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="container">
+                <b>TextBlob Model Sentiment: </b>
+              </div>
+              <div class="container">
+                <b></b> {{tSentimentT}}
+              </div>
+            </div>
+            {% endif %}
+            <!-- </div> -->
+            <!-- End of the Visualizations imageNav Area -->
+          </div>
         </div>
+        {% endif %}
       </div>
     </div>
     <!-- End of container -->
     ​
     <!-- Start of footer -->
     <footer>
-      <div class="footer">© Analysis Copyright Ajay Archana Hasti Akshita Aslam Rutgers Data Science Bootcamp.</div>
+      <div class="footer">© Analysis Copyright Ajay Archana Hasti Akshita Aslam Rutgers Data Science Bootcamp.
+      </div>
     </footer>
     <!-- End of footer -->
     ​
