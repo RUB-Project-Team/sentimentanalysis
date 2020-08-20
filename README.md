@@ -94,8 +94,8 @@ Volume of tweets per minute is huge. Due to limitation of hardware, storage and 
 Too many techniques are available to classify tweet though none shows accuracy to classify tweets correctly over 80%.
 
 ## Group Members
-* Ajay Patil
-* Akshita Parasrampuria
+* Ajay Patil 
+* Akshita Parasrampuria [LinkedIn](https://www.linkedin.com/in/akshita-parasrampuria-786377169/)
 * Archna Ashish
 * Aslam Momin
 * Hasti Patel
