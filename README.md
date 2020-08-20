@@ -37,6 +37,42 @@ Visualizations were built using variety of JS libraries like Chart.js, Plotly.js
 ### VI. Dashboard and website
 The dashboard function of the website was built around the interactive visualizations and then the website was finally deployed on Heroku.
 
+
+## Output
+
+1. Count of Tweets over the period for each sentiment and a sample of 5 tweets for each category
+
+![img](static/Images/2.png)
+
+2. Word Cloud of positive and negative tweets for each candidate.
+
+![img](static/Images/3.png)
+
+3. Word Frequency of Positive vs. Negative Tweets
+
+ ![img](static/Images/4.png)
+
+4. Total Sentiment Comparison
+
+![img](static/Images/5.png)
+ 
+5. Number of Tweets Comparison group Bar plot and 8 most Positive and Negative used words Dendrogram 
+
+![img](static/Images/6.png)
+
+6. Line Charts showing sentiment over the period
+
+![img](static/Images/7.png)
+
+7. Tweet Publisher Demographics- 5 Most used Platforms to tweet and Average Followers of Tweeters of each candidate.
+
+![img](static/Images/8.png)
+
+8. Model Deployment and live testing lets the user enter a sentence in the box on left and sentiment results under each model are shown on the right.
+
+![img](static/Images/9.png)
+
+
 ## Tools and Technologies Used
 * Languages :- Python, JavaScript, HTML, CSS, Jinja, SQL.
 
@@ -56,7 +92,7 @@ Volume of tweets per minute is huge. Due to limitation of hardware, storage and 
 
 * **Word Classification**
 Too many techniques are available to classify tweet though none shows accuracy to classify tweets correctly over 80%.
- 
+
 ## Group Members
 * Ajay Patil
 * Akshita Parasrampuria
