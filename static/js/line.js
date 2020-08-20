@@ -122,6 +122,14 @@ new Chart(document.getElementById("myChart1"), {
         display: true,
         text: 'Trump Tweets'
       },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Tweet Count'
+          }
+        }]
+      },      
       xAxes: [{
         ticks: {
           // autoSkip: false,
@@ -129,6 +137,7 @@ new Chart(document.getElementById("myChart1"), {
           minRotation: 45
         }
       }]
+   
     }
   });
 
@@ -159,7 +168,22 @@ new Chart(document.getElementById("myChart1"), {
       title: {
         display: true,
         text: 'Biden Tweets'
-      }
+      },
+      xAxes: [{
+        ticks: {
+          // autoSkip: false,
+          maxRotation: 90,
+          minRotation: 45
+        }
+      }],
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Tweet Count'
+        }
+      }]
+    }      
     }
   });
 // });

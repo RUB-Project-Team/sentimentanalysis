@@ -1,16 +1,20 @@
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height"),
-    g = svg.append("g").attr("transform", "translate(" + (width / 2 - 15) + "," + (height / 2 + 25) + ")");
+
+    g = svg.append("g").attr("transform", "translate(" + (width / 2 - 15) + "," + (height / 2 - 25) + ")");
+
 
 var stratify = d3.stratify()
     .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
 var tree = d3.cluster()
-    .size([360, 390])
+
+    .size([180, 195])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
-var url="https://raw.githubusercontent.com/RUB-Project-Team/sentimentanalysis/master/Resources/data/data.csv";
+var url="../data/data.csv";
+
 
 d3.csv(url).then(function(data) {
   // console.log(data);
@@ -36,7 +40,9 @@ var node = g.selectAll(".node")
   .attr("transform", function(d) { return "translate(" + project(d.x, d.y) + ")"; });
 
 node.append("circle")
-  .attr("r", 2.5);
+
+  .attr("r", 1.5);
+
 
 node.append("text")
   .attr("dy", ".31em")
