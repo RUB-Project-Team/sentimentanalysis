@@ -37,6 +37,8 @@ Visualizations were built using variety of JS libraries like Chart.js, Plotly.js
 ### VI. Dashboard and website
 The dashboard function of the website was built around the interactive visualizations and then the website was finally deployed on Heroku.
 
+## Project document 
+[Project Technical Documentation](https://github.com/RUB-Project-Team/sentimentanalysis/Twitter Sentiment Prediction Model.pdf)
 
 ## Output
 
@@ -102,3 +104,4 @@ Too many techniques are available to classify tweet though none shows accuracy t
 
 ## Declaration
 The authors declare and solemnly affirm that this research has neither been funded by any political or religious groups nor are the authors in any way affiliated to any institutions with direct or indirect access to groups with biased interests. This research work has been carried out in the interests of technology and academics.
+
